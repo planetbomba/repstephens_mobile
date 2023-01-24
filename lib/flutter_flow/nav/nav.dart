@@ -104,6 +104,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 docRef: params.getParam(
                     'docRef', ParamType.DocumentReference, false, ['posts']),
               ),
+            ),
+            FFRoute(
+              name: 'SingleVideo',
+              path: 'singleVideo',
+              builder: (context, params) => SingleVideoWidget(
+                docRef: params.getParam(
+                    'docRef', ParamType.DocumentReference, false, ['videos']),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

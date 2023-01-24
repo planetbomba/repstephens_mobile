@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -44,81 +45,154 @@ class _NewsWidgetState extends State<NewsWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 7,
-                        color: Color(0x2F1D2429),
-                        offset: Offset(0, 3),
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(8),
+          child: StreamBuilder<List<PostsRecord>>(
+            stream: queryPostsRecord(
+              queryBuilder: (postsRecord) =>
+                  postsRecord.orderBy('publish_date', descending: true),
+            ),
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: CircularProgressIndicator(
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
                   ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        ClipRRect(
+                );
+              }
+              List<PostsRecord> listViewPostsRecordList = snapshot.data!;
+              return ListView.builder(
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.vertical,
+                itemCount: listViewPostsRecordList.length,
+                itemBuilder: (context, listViewIndex) {
+                  final listViewPostsRecord =
+                      listViewPostsRecordList[listViewIndex];
+                  return Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 20),
+                    child: InkWell(
+                      onTap: () async {
+                        context.pushNamed(
+                          'NewsDetails',
+                          queryParams: {
+                            'docRef': serializeParam(
+                              listViewPostsRecord.reference,
+                              ParamType.DocumentReference,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 7,
+                              color: Color(0x2F1D2429),
+                              offset: Offset(0, 3),
+                            )
+                          ],
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1569074187119-c87815b476da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fHNwb3J0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60',
-                            width: double.infinity,
-                            height: 100,
-                            fit: BoxFit.cover,
-                          ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 8),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'Main Header',
-                                style: FlutterFlowTheme.of(context)
-                                    .subtitle1
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF101213),
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
+                        child: Column(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: Text(
-                                'I’ll be working on a few different proposals, let me know when you’ve got time to go over them before the weekend.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      color: Color(0xFF57636C),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(0),
+                                      bottomRight: Radius.circular(0),
+                                      topLeft: Radius.circular(8),
+                                      topRight: Radius.circular(8),
                                     ),
+                                    child: Image.network(
+                                      listViewPostsRecord.image!,
+                                      width: double.infinity,
+                                      height: 175,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(10, 0, 10, 10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 5),
+                                    child: Text(
+                                      listViewPostsRecord.title!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .subtitle1
+                                          .override(
+                                            fontFamily: 'Outfit',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600,
+                                            lineHeight: 1.1,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 10),
+                                    child: Text(
+                                      listViewPostsRecord.body!
+                                          .maybeHandleOverflow(
+                                        maxChars: 125,
+                                        replacement: '…',
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .grayIcon,
+                                            fontWeight: FontWeight.w500,
+                                            lineHeight: 1.2,
+                                          ),
+                                    ),
+                                  ),
+                                  Text(
+                                    dateTimeFormat('relative',
+                                        listViewPostsRecord.publishDate!),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryColor,
+                                          fontSize: 14,
+                                          fontStyle: FontStyle.italic,
+                                        ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              ),
-            ],
+                  );
+                },
+              );
+            },
           ),
         ),
       ),

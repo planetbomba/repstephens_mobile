@@ -41,6 +41,20 @@ class _$VideosRecordSerializer implements StructuredSerializer<VideosRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.thumbnail;
+    if (value != null) {
+      result
+        ..add('thumbnail')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -76,6 +90,14 @@ class _$VideosRecordSerializer implements StructuredSerializer<VideosRecord> {
           result.youtubeLink = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'thumbnail':
+          result.thumbnail = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'description':
+          result.description = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -97,13 +119,22 @@ class _$VideosRecord extends VideosRecord {
   @override
   final String? youtubeLink;
   @override
+  final String? thumbnail;
+  @override
+  final String? description;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$VideosRecord([void Function(VideosRecordBuilder)? updates]) =>
       (new VideosRecordBuilder()..update(updates))._build();
 
   _$VideosRecord._(
-      {this.publishedDate, this.title, this.youtubeLink, this.ffRef})
+      {this.publishedDate,
+      this.title,
+      this.youtubeLink,
+      this.thumbnail,
+      this.description,
+      this.ffRef})
       : super._();
 
   @override
@@ -120,14 +151,20 @@ class _$VideosRecord extends VideosRecord {
         publishedDate == other.publishedDate &&
         title == other.title &&
         youtubeLink == other.youtubeLink &&
+        thumbnail == other.thumbnail &&
+        description == other.description &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, publishedDate.hashCode), title.hashCode),
-            youtubeLink.hashCode),
+        $jc(
+            $jc(
+                $jc($jc($jc(0, publishedDate.hashCode), title.hashCode),
+                    youtubeLink.hashCode),
+                thumbnail.hashCode),
+            description.hashCode),
         ffRef.hashCode));
   }
 
@@ -137,6 +174,8 @@ class _$VideosRecord extends VideosRecord {
           ..add('publishedDate', publishedDate)
           ..add('title', title)
           ..add('youtubeLink', youtubeLink)
+          ..add('thumbnail', thumbnail)
+          ..add('description', description)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -159,6 +198,14 @@ class VideosRecordBuilder
   String? get youtubeLink => _$this._youtubeLink;
   set youtubeLink(String? youtubeLink) => _$this._youtubeLink = youtubeLink;
 
+  String? _thumbnail;
+  String? get thumbnail => _$this._thumbnail;
+  set thumbnail(String? thumbnail) => _$this._thumbnail = thumbnail;
+
+  String? _description;
+  String? get description => _$this._description;
+  set description(String? description) => _$this._description = description;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -173,6 +220,8 @@ class VideosRecordBuilder
       _publishedDate = $v.publishedDate;
       _title = $v.title;
       _youtubeLink = $v.youtubeLink;
+      _thumbnail = $v.thumbnail;
+      _description = $v.description;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -199,6 +248,8 @@ class VideosRecordBuilder
             publishedDate: publishedDate,
             title: title,
             youtubeLink: youtubeLink,
+            thumbnail: thumbnail,
+            description: description,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

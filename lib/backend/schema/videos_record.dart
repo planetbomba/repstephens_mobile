@@ -18,13 +18,19 @@ abstract class VideosRecord
   @BuiltValueField(wireName: 'youtube_link')
   String? get youtubeLink;
 
+  String? get thumbnail;
+
+  String? get description;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(VideosRecordBuilder builder) => builder
     ..title = ''
-    ..youtubeLink = '';
+    ..youtubeLink = ''
+    ..thumbnail = ''
+    ..description = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('videos');
@@ -51,6 +57,8 @@ Map<String, dynamic> createVideosRecordData({
   DateTime? publishedDate,
   String? title,
   String? youtubeLink,
+  String? thumbnail,
+  String? description,
 }) {
   final firestoreData = serializers.toFirestore(
     VideosRecord.serializer,
@@ -58,7 +66,9 @@ Map<String, dynamic> createVideosRecordData({
       (v) => v
         ..publishedDate = publishedDate
         ..title = title
-        ..youtubeLink = youtubeLink,
+        ..youtubeLink = youtubeLink
+        ..thumbnail = thumbnail
+        ..description = description,
     ),
   );
 

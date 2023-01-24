@@ -68,14 +68,6 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                 context.pop();
               },
             ),
-            title: Text(
-              'LATEST NEWS',
-              style: FlutterFlowTheme.of(context).title2.override(
-                    fontFamily: 'Poppins',
-                    color: Color(0xFF003366),
-                    fontSize: 22,
-                  ),
-            ),
             actions: [],
             centerTitle: true,
             elevation: 2,
