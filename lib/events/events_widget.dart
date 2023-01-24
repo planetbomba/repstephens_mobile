@@ -27,18 +27,15 @@ class _EventsWidgetState extends State<EventsWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: Color(0xFF003366),
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
-        title: Text(
-          'Page Title',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Colors.white,
-                fontSize: 22,
-              ),
+        title: Image.asset(
+          'assets/images/logoHorizontal.png',
+          height: 40,
+          fit: BoxFit.cover,
         ),
         actions: [],
-        centerTitle: false,
+        centerTitle: true,
         elevation: 2,
       ),
       body: SafeArea(

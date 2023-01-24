@@ -45,7 +45,7 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             appBar: AppBar(
-              backgroundColor: Color(0xFFFFD44E),
+              backgroundColor: FlutterFlowTheme.of(context).primaryColor,
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
@@ -54,12 +54,17 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                 buttonSize: 60,
                 icon: Icon(
                   Icons.arrow_back_rounded,
-                  color: Color(0xFF7190B0),
+                  color: FlutterFlowTheme.of(context).gray200,
                   size: 30,
                 ),
                 onPressed: () async {
                   context.pop();
                 },
+              ),
+              title: Image.asset(
+                'assets/images/logoHorizontal.png',
+                height: 40,
+                fit: BoxFit.cover,
               ),
               actions: [],
               centerTitle: true,

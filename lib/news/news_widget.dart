@@ -28,15 +28,12 @@ class _NewsWidgetState extends State<NewsWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFD44E),
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
-        title: Text(
-          'LATEST NEWS',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: Color(0xFF003366),
-                fontSize: 22,
-              ),
+        title: Image.asset(
+          'assets/images/logoHorizontal.png',
+          height: 40,
+          fit: BoxFit.cover,
         ),
         actions: [],
         centerTitle: true,
