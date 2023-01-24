@@ -5,6 +5,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/settings_record.dart';
 import 'schema/posts_record.dart';
+import 'schema/videos_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -14,6 +15,7 @@ export 'schema/serializers.dart';
 
 export 'schema/settings_record.dart';
 export 'schema/posts_record.dart';
+export 'schema/videos_record.dart';
 
 /// Functions to query SettingsRecords (as a Stream and as a Future).
 Future<int> querySettingsRecordCount({
@@ -113,6 +115,58 @@ Future<FFFirestorePage<PostsRecord>> queryPostsRecordPage({
     queryCollectionPage(
       PostsRecord.collection,
       PostsRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query VideosRecords (as a Stream and as a Future).
+Future<int> queryVideosRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      VideosRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<VideosRecord>> queryVideosRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      VideosRecord.collection,
+      VideosRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<VideosRecord>> queryVideosRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      VideosRecord.collection,
+      VideosRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<VideosRecord>> queryVideosRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      VideosRecord.collection,
+      VideosRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

@@ -3,6 +3,7 @@ import 'package:from_css_color/from_css_color.dart';
 
 import 'settings_record.dart';
 import 'posts_record.dart';
+import 'videos_record.dart';
 
 import 'index.dart';
 
@@ -15,6 +16,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 @SerializersFor(const [
   SettingsRecord,
   PostsRecord,
+  VideosRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
