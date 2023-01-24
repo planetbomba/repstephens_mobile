@@ -5,3 +5,4 @@ export 'video/video_widget.dart' show VideoWidget;
 export 'events/events_widget.dart' show EventsWidget;
 export 'toolbox/toolbox_widget.dart' show ToolboxWidget;
 export 'news/news_widget.dart' show NewsWidget;
+export 'news_details/news_details_widget.dart' show NewsDetailsWidget;

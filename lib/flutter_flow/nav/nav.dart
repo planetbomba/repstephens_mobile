@@ -96,6 +96,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'News')
                   : NewsWidget(),
+            ),
+            FFRoute(
+              name: 'NewsDetails',
+              path: 'newsDetails',
+              builder: (context, params) => NewsDetailsWidget(
+                docRef: params.getParam(
+                    'docRef', ParamType.DocumentReference, false, ['posts']),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
