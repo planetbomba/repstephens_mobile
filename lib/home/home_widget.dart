@@ -530,7 +530,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.of(context).viewInsets,
-                                    child: ContactModalWidget(),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.5,
+                                      child: ContactModalWidget(),
+                                    ),
                                   );
                                 },
                               ).then((value) => setState(() {}));
