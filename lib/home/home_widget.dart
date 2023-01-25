@@ -519,7 +519,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             onPressed: () {
                               print('Button pressed ...');
                             },
-                            text: 'CONTACT OUR OFFICE',
+                            text: 'SEND A MESSAGE',
                             options: FFButtonOptions(
                               height: 40,
                               color: FlutterFlowTheme.of(context).alternate,
