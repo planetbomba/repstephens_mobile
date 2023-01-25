@@ -479,7 +479,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 'assets/images/talking.jpg',
                                 width: double.infinity,
                                 height: 200,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.contain,
                               ),
                             ),
                           ],
