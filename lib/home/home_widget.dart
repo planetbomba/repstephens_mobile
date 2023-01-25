@@ -634,9 +634,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                               FFAppState().capitoladdress,
                               style: FlutterFlowTheme.of(context).bodyText1,
                             ),
-                            Text(
-                              FFAppState().capitolphone,
-                              style: FlutterFlowTheme.of(context).bodyText1,
+                            InkWell(
+                              onTap: () async {
+                                await launchUrl(Uri(
+                                  scheme: 'tel',
+                                  path: FFAppState().capitolphone,
+                                ));
+                              },
+                              child: Text(
+                                FFAppState().capitolphone,
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
                             ),
                           ],
                         ),
@@ -662,9 +670,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 FFAppState().address,
                                 style: FlutterFlowTheme.of(context).bodyText1,
                               ),
-                              Text(
-                                FFAppState().phonenumber,
-                                style: FlutterFlowTheme.of(context).bodyText1,
+                              InkWell(
+                                onTap: () async {
+                                  await launchUrl(Uri(
+                                    scheme: 'tel',
+                                    path: FFAppState().phonenumber,
+                                  ));
+                                },
+                                child: Text(
+                                  FFAppState().phonenumber,
+                                  style: FlutterFlowTheme.of(context).bodyText1,
+                                ),
                               ),
                             ],
                           ),
