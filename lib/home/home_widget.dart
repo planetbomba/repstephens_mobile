@@ -533,7 +533,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     child: Container(
                                       height:
                                           MediaQuery.of(context).size.height *
-                                              0.5,
+                                              0.7,
                                       child: ContactModalWidget(),
                                     ),
                                   );

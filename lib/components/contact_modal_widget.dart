@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class ContactModalWidget extends StatefulWidget {
@@ -16,6 +17,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
   TextEditingController? txtEmailController;
   TextEditingController? txtNameController;
   TextEditingController? txtPhoneController;
+  final txtPhoneMask = MaskTextInputFormatter(mask: '(###) ###-##-##');
   TextEditingController? txtSubjectController;
   TextEditingController? txtMessageController;
   final formKey = GlobalKey<FormState>();
@@ -114,7 +116,27 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           decoration: InputDecoration(
                             hintText: 'Your Name...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                            enabledBorder: UnderlineInputBorder(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -124,27 +146,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                                 topRight: Radius.circular(4.0),
                               ),
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
+                            focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -174,7 +176,27 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           decoration: InputDecoration(
                             hintText: 'Your Email...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                            enabledBorder: UnderlineInputBorder(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -184,27 +206,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                                 topRight: Radius.circular(4.0),
                               ),
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
+                            focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -238,7 +240,27 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           decoration: InputDecoration(
                             hintText: 'Your Phone...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                            enabledBorder: UnderlineInputBorder(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -248,27 +270,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                                 topRight: Radius.circular(4.0),
                               ),
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
+                            focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -280,6 +282,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
+                          inputFormatters: [txtPhoneMask],
                         ),
                       ),
                       Padding(
@@ -291,7 +294,27 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           decoration: InputDecoration(
                             hintText: 'Subject...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
-                            enabledBorder: UnderlineInputBorder(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1,
+                              ),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(4.0),
+                                topRight: Radius.circular(4.0),
+                              ),
+                            ),
+                            errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -301,27 +324,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                                 topRight: Radius.circular(4.0),
                               ),
                             ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
+                            focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
                                 width: 1,
@@ -406,6 +409,11 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
                     child: FFButtonWidget(
                       onPressed: () async {
+                        if (formKey.currentState == null ||
+                            !formKey.currentState!.validate()) {
+                          return;
+                        }
+
                         context.pop();
                       },
                       text: 'SEND MESSAGE',
