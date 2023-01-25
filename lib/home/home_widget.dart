@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/contact_modal_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeWidget extends StatefulWidget {
   const HomeWidget({Key? key}) : super(key: key);
@@ -492,8 +494,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await launchUrl(Uri(
+                                scheme: 'tel',
+                                path: FFAppState().phonenumber,
+                              ));
                             },
                             text: 'CALL OUR OFFICE',
                             options: FFButtonOptions(
@@ -515,8 +520,20 @@ class _HomeWidgetState extends State<HomeWidget> {
                             ),
                           ),
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                barrierColor: Color(0xCC95A1AC),
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return Padding(
+                                    padding: MediaQuery.of(context).viewInsets,
+                                    child: ContactModalWidget(),
+                                  );
+                                },
+                              ).then((value) => setState(() {}));
                             },
                             text: 'SEND A MESSAGE',
                             options: FFButtonOptions(
