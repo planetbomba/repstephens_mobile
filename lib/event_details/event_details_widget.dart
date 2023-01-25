@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -54,6 +55,20 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
           appBar: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryColor,
             automaticallyImplyLeading: false,
+            leading: FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30,
+              borderWidth: 1,
+              buttonSize: 60,
+              icon: Icon(
+                Icons.arrow_back_rounded,
+                color: FlutterFlowTheme.of(context).gray200,
+                size: 30,
+              ),
+              onPressed: () async {
+                context.pop();
+              },
+            ),
             title: Image.asset(
               'assets/images/logoHorizontal.png',
               height: 40,
@@ -199,7 +214,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                           ),
                           Html(
                             data:
-                                '<style> html, body { Font-size:16pt; line-height:1.4; } </style>${eventDetailsEventsRecord.description}',
+                                '<style> html, body { Font-size:17pt; line-height:1.4; } </style>${eventDetailsEventsRecord.description}',
                           ),
                           if (eventDetailsEventsRecord.learnMore != null &&
                               eventDetailsEventsRecord.learnMore != '')
