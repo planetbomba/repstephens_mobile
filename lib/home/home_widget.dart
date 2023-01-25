@@ -475,12 +475,34 @@ class _HomeWidgetState extends State<HomeWidget> {
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Image.asset(
-                                'assets/images/talking.jpg',
-                                width: double.infinity,
-                                fit: BoxFit.fitWidth,
+                            InkWell(
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding:
+                                          MediaQuery.of(context).viewInsets,
+                                      child: Container(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.7,
+                                        child: ContactModalWidget(),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => setState(() {}));
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(12),
+                                child: Image.asset(
+                                  'assets/images/talking.jpg',
+                                  width: double.infinity,
+                                  fit: BoxFit.fitWidth,
+                                ),
                               ),
                             ),
                           ],
