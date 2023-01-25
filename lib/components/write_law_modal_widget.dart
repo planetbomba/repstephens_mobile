@@ -93,7 +93,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 0, 12),
                 child: Text(
                   'If I could write a law...',
                   style: FlutterFlowTheme.of(context).title2,
@@ -172,7 +172,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                           controller: txtEmailController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Your Email...',
+                            labelText: 'Your Email...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -235,7 +235,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                           controller: txtPhoneController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Your Phone...',
+                            labelText: 'Your Phone...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -288,7 +288,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                           controller: txtAboutController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Your law is about...',
+                            labelText: 'Your law is about...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -345,7 +345,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                         controller: txtLawController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Enter your idea for a law here...',
+                          labelText: 'Enter your idea for a law here...',
                           hintStyle: FlutterFlowTheme.of(context).bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -409,8 +409,6 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             !formKey.currentState!.validate()) {
                           return;
                         }
-
-                        context.pop();
                       },
                       text: 'SEND MESSAGE',
                       options: FFButtonOptions(

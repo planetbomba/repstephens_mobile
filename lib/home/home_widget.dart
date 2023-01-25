@@ -508,9 +508,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       padding:
                                           MediaQuery.of(context).viewInsets,
                                       child: Container(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.7,
+                                        height: 600,
                                         child: ContactModalWidget(),
                                       ),
                                     );
@@ -567,14 +565,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                               await showModalBottomSheet(
                                 isScrollControlled: true,
                                 backgroundColor: Colors.transparent,
-                                barrierColor: Color(0xCC95A1AC),
+                                barrierColor: Color(0xCB0D1E23),
                                 enableDrag: false,
                                 context: context,
                                 builder: (context) {
                                   return Padding(
                                     padding: MediaQuery.of(context).viewInsets,
                                     child: Container(
-                                      height: 400,
+                                      height: 600,
                                       child: ContactModalWidget(),
                                     ),
                                   );

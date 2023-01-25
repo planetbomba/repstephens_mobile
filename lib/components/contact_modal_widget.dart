@@ -93,7 +93,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 0, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 0, 12),
                 child: Text(
                   'Send us a message',
                   style: FlutterFlowTheme.of(context).title2,
@@ -113,7 +113,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           controller: txtNameController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Your Name...',
+                            labelText: 'Your Name...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -172,7 +172,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           controller: txtEmailController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Your Email...',
+                            labelText: 'Your Email...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -235,7 +235,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           controller: txtPhoneController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Your Phone...',
+                            labelText: 'Your Phone...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -288,7 +288,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           controller: txtSubjectController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            hintText: 'Subject...',
+                            labelText: 'Subject...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -345,7 +345,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                         controller: txtMessageController,
                         obscureText: false,
                         decoration: InputDecoration(
-                          hintText: 'Enter your message here...',
+                          labelText: 'Enter your message here...',
                           hintStyle: FlutterFlowTheme.of(context).bodyText2,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
