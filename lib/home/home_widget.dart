@@ -478,8 +478,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               child: Image.asset(
                                 'assets/images/talking.jpg',
                                 width: double.infinity,
-                                height: 200,
-                                fit: BoxFit.contain,
+                                fit: BoxFit.fitWidth,
                               ),
                             ),
                           ],
