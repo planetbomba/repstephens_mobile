@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -97,8 +98,8 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         topLeft: Radius.circular(8),
                         topRight: Radius.circular(8),
                       ),
-                      child: Image.network(
-                        eventDetailsEventsRecord.eventImage!,
+                      child: CachedNetworkImage(
+                        imageUrl: eventDetailsEventsRecord.eventImage!,
                         width: double.infinity,
                         height: 225,
                         fit: BoxFit.cover,

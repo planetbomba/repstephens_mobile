@@ -1,6 +1,7 @@
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -105,8 +106,8 @@ class _EventsWidgetState extends State<EventsWidget> {
                                 topLeft: Radius.circular(8),
                                 topRight: Radius.circular(8),
                               ),
-                              child: Image.network(
-                                listViewEventsRecord.eventImage!,
+                              child: CachedNetworkImage(
+                                imageUrl: listViewEventsRecord.eventImage!,
                                 width: double.infinity,
                                 height: 225,
                                 fit: BoxFit.cover,

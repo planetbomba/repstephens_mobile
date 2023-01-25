@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -90,8 +91,8 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0),
-                      child: Image.network(
-                        newsDetailsPostsRecord.image!,
+                      child: CachedNetworkImage(
+                        imageUrl: newsDetailsPostsRecord.image!,
                         width: double.infinity,
                         height: 200,
                         fit: BoxFit.cover,
