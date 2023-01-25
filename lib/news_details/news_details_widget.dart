@@ -111,7 +111,8 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryColor,
-                                    fontSize: 20,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
                                     lineHeight: 1.1,
                                   ),
                             ),
@@ -128,7 +129,8 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                                     fontFamily: 'Poppins',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryColor,
-                                    fontSize: 17,
+                                    fontSize: 16,
+                                    fontStyle: FontStyle.italic,
                                   ),
                             ),
                           ),

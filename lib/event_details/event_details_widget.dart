@@ -115,7 +115,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryColor,
-                                      fontSize: 17,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                       lineHeight: 1.2,
                                     ),
