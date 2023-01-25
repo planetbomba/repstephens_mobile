@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class EventDetailsWidget extends StatefulWidget {
   const EventDetailsWidget({
@@ -33,6 +34,8 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<EventsRecord>(
       stream: EventsRecord.getDocument(widget.docRef!),
       builder: (context, snapshot) {

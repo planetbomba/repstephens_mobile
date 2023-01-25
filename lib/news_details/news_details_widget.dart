@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class NewsDetailsWidget extends StatefulWidget {
   const NewsDetailsWidget({
@@ -32,6 +33,8 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<PostsRecord>(
       stream: PostsRecord.getDocument(widget.docRef!),
       builder: (context, snapshot) {

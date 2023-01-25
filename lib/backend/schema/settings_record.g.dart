@@ -49,6 +49,20 @@ class _$SettingsRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.capitolAddress;
+    if (value != null) {
+      result
+        ..add('capitol_address')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.capitolPhone;
+    if (value != null) {
+      result
+        ..add('capitol_phone')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -88,6 +102,14 @@ class _$SettingsRecordSerializer
           result.website = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'capitol_address':
+          result.capitolAddress = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'capitol_phone':
+          result.capitolPhone = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -111,13 +133,23 @@ class _$SettingsRecord extends SettingsRecord {
   @override
   final String? website;
   @override
+  final String? capitolAddress;
+  @override
+  final String? capitolPhone;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$SettingsRecord([void Function(SettingsRecordBuilder)? updates]) =>
       (new SettingsRecordBuilder()..update(updates))._build();
 
   _$SettingsRecord._(
-      {this.phoneNumber, this.address, this.email, this.website, this.ffRef})
+      {this.phoneNumber,
+      this.address,
+      this.email,
+      this.website,
+      this.capitolAddress,
+      this.capitolPhone,
+      this.ffRef})
       : super._();
 
   @override
@@ -136,6 +168,8 @@ class _$SettingsRecord extends SettingsRecord {
         address == other.address &&
         email == other.email &&
         website == other.website &&
+        capitolAddress == other.capitolAddress &&
+        capitolPhone == other.capitolPhone &&
         ffRef == other.ffRef;
   }
 
@@ -143,9 +177,13 @@ class _$SettingsRecord extends SettingsRecord {
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, phoneNumber.hashCode), address.hashCode),
-                email.hashCode),
-            website.hashCode),
+            $jc(
+                $jc(
+                    $jc($jc($jc(0, phoneNumber.hashCode), address.hashCode),
+                        email.hashCode),
+                    website.hashCode),
+                capitolAddress.hashCode),
+            capitolPhone.hashCode),
         ffRef.hashCode));
   }
 
@@ -156,6 +194,8 @@ class _$SettingsRecord extends SettingsRecord {
           ..add('address', address)
           ..add('email', email)
           ..add('website', website)
+          ..add('capitolAddress', capitolAddress)
+          ..add('capitolPhone', capitolPhone)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -181,6 +221,15 @@ class SettingsRecordBuilder
   String? get website => _$this._website;
   set website(String? website) => _$this._website = website;
 
+  String? _capitolAddress;
+  String? get capitolAddress => _$this._capitolAddress;
+  set capitolAddress(String? capitolAddress) =>
+      _$this._capitolAddress = capitolAddress;
+
+  String? _capitolPhone;
+  String? get capitolPhone => _$this._capitolPhone;
+  set capitolPhone(String? capitolPhone) => _$this._capitolPhone = capitolPhone;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -196,6 +245,8 @@ class SettingsRecordBuilder
       _address = $v.address;
       _email = $v.email;
       _website = $v.website;
+      _capitolAddress = $v.capitolAddress;
+      _capitolPhone = $v.capitolPhone;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -223,6 +274,8 @@ class SettingsRecordBuilder
             address: address,
             email: email,
             website: website,
+            capitolAddress: capitolAddress,
+            capitolPhone: capitolPhone,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

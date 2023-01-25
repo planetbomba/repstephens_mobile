@@ -6,6 +6,7 @@ import '../flutter_flow/flutter_flow_youtube_player.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SingleVideoWidget extends StatefulWidget {
   const SingleVideoWidget({
@@ -24,6 +25,8 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<VideosRecord>(
       stream: VideosRecord.getDocument(widget.docRef!),
       builder: (context, snapshot) {
