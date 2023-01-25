@@ -114,7 +114,6 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Name',
-                            hintText: 'Your Name...',
                             hintStyle: FlutterFlowTheme.of(context).bodyText2,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
