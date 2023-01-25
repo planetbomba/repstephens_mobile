@@ -21,6 +21,7 @@ class FFAppState extends ChangeNotifier {
     _website = prefs.getString('ff_website') ?? _website;
     _capitoladdress = prefs.getString('ff_capitoladdress') ?? _capitoladdress;
     _capitolphone = prefs.getString('ff_capitolphone') ?? _capitolphone;
+    _surveyurl = prefs.getString('ff_surveyurl') ?? _surveyurl;
   }
 
   void update(VoidCallback callback) {
@@ -70,6 +71,13 @@ class FFAppState extends ChangeNotifier {
   set capitolphone(String _value) {
     _capitolphone = _value;
     prefs.setString('ff_capitolphone', _value);
+  }
+
+  String _surveyurl = 'https://repstephens.com';
+  String get surveyurl => _surveyurl;
+  set surveyurl(String _value) {
+    _surveyurl = _value;
+    prefs.setString('ff_surveyurl', _value);
   }
 }
 
