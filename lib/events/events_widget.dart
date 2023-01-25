@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -41,9 +42,159 @@ class _EventsWidgetState extends State<EventsWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: StreamBuilder<List<EventsRecord>>(
+            stream: queryEventsRecord(
+              queryBuilder: (eventsRecord) => eventsRecord
+                  .where('end_date',
+                      isGreaterThanOrEqualTo: getCurrentTimestamp)
+                  .orderBy('end_date'),
+            ),
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: CircularProgressIndicator(
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                  ),
+                );
+              }
+              List<EventsRecord> listViewEventsRecordList = snapshot.data!;
+              return ListView.builder(
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.vertical,
+                itemCount: listViewEventsRecordList.length,
+                itemBuilder: (context, listViewIndex) {
+                  final listViewEventsRecord =
+                      listViewEventsRecordList[listViewIndex];
+                  return Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
+                    child: InkWell(
+                      onTap: () async {
+                        context.pushNamed('EventDetails');
+                      },
+                      child: Card(
+                        clipBehavior: Clip.antiAliasWithSaveLayer,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(0),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(8),
+                                topRight: Radius.circular(8),
+                              ),
+                              child: Image.network(
+                                listViewEventsRecord.eventImage!,
+                                width: double.infinity,
+                                height: 225,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    listViewEventsRecord.title!,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryColor,
+                                          fontSize: 17,
+                                          fontWeight: FontWeight.bold,
+                                          lineHeight: 1.2,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 10, 0, 0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'START DATE',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .grayIcon,
+                                                      ),
+                                            ),
+                                            Text(
+                                              '${dateTimeFormat('MMMEd', listViewEventsRecord.startDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.startDate)}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1,
+                                            ),
+                                          ],
+                                        ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'END DATE',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .grayIcon,
+                                                      ),
+                                            ),
+                                            Text(
+                                              '${dateTimeFormat('MMMEd', listViewEventsRecord.endDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.endDate)}',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1,
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
           ),
         ),
       ),

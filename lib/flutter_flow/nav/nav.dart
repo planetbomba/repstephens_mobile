@@ -112,6 +112,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 docRef: params.getParam(
                     'docRef', ParamType.DocumentReference, false, ['videos']),
               ),
+            ),
+            FFRoute(
+              name: 'EventDetails',
+              path: 'eventDetails',
+              builder: (context, params) => EventDetailsWidget(
+                docRef: params.getParam(
+                    'docRef', ParamType.DocumentReference, false, ['events']),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
