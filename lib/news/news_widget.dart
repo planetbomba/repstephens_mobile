@@ -46,6 +46,7 @@ class _NewsWidgetState extends State<NewsWidget> {
             stream: queryPostsRecord(
               queryBuilder: (postsRecord) =>
                   postsRecord.orderBy('publish_date', descending: true),
+              limit: 20,
             ),
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.

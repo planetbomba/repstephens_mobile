@@ -135,6 +135,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   stream: queryPostsRecord(
                     queryBuilder: (postsRecord) =>
                         postsRecord.orderBy('publish_date', descending: true),
+                    limit: 10,
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
