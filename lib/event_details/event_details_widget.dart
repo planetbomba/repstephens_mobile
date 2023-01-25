@@ -144,7 +144,11 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                     Text(
                                       '${dateTimeFormat('MMMEd', eventDetailsEventsRecord.startDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.startDate)}',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 14,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -193,7 +197,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 16,
+                                      fontSize: 14,
                                     ),
                           ),
                           Padding(
