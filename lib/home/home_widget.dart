@@ -551,6 +551,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Column(
                           mainAxisSize: MainAxisSize.max,
