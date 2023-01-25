@@ -134,7 +134,7 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                           ),
                           Html(
                             data:
-                                '<style> html, body { Font-size:16pt; line-height:1.4; } </style>${newsDetailsPostsRecord.body}',
+                                '<style> html, body { Font-size:17pt; line-height:1.4; margin:0; padding:0; } </style>${newsDetailsPostsRecord.body}',
                           ),
                           Align(
                             alignment: AlignmentDirectional(0, 0),

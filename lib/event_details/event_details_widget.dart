@@ -218,7 +218,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                           ),
                           Html(
                             data:
-                                '<style> html, body { Font-size:17pt; line-height:1.4; } </style>${eventDetailsEventsRecord.description}',
+                                '<style> html, body { Font-size:17pt; line-height:1.4; margin:0; padding:0; } </style>${eventDetailsEventsRecord.description}',
                           ),
                           if (eventDetailsEventsRecord.learnMore != null &&
                               eventDetailsEventsRecord.learnMore != '')
