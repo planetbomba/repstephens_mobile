@@ -108,7 +108,6 @@ class _VideoWidgetState extends State<VideoWidget> {
                               Expanded(
                                 child: Container(
                                   width: 100,
-                                  height: 100,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
