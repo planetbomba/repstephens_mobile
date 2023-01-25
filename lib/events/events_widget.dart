@@ -74,7 +74,15 @@ class _EventsWidgetState extends State<EventsWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
                     child: InkWell(
                       onTap: () async {
-                        context.pushNamed('EventDetails');
+                        context.pushNamed(
+                          'EventDetails',
+                          queryParams: {
+                            'docRef': serializeParam(
+                              listViewEventsRecord.reference,
+                              ParamType.DocumentReference,
+                            ),
+                          }.withoutNulls,
+                        );
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,
