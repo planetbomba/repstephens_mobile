@@ -574,9 +574,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   return Padding(
                                     padding: MediaQuery.of(context).viewInsets,
                                     child: Container(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.7,
+                                      height: 400,
                                       child: ContactModalWidget(),
                                     ),
                                   );

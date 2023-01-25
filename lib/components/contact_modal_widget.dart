@@ -101,7 +101,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
               ),
               Form(
                 key: formKey,
-                autovalidateMode: AutovalidateMode.always,
+                autovalidateMode: AutovalidateMode.disabled,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
                   child: Column(
@@ -111,7 +111,6 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
                           controller: txtNameController,
-                          autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Your Name...',
@@ -171,7 +170,6 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
                           controller: txtEmailController,
-                          autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Your Email...',
@@ -235,7 +233,6 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
                           controller: txtPhoneController,
-                          autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Your Phone...',
@@ -289,7 +286,6 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
                           controller: txtSubjectController,
-                          autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Subject...',
