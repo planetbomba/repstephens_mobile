@@ -549,56 +549,64 @@ class _HomeWidgetState extends State<HomeWidget> {
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'DISTRICT OFFICE',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: FlutterFlowTheme.of(context).grayIcon,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          Text(
-                            FFAppState().address,
-                            style: FlutterFlowTheme.of(context).bodyText1,
-                          ),
-                          Text(
-                            FFAppState().phonenumber,
-                            style: FlutterFlowTheme.of(context).bodyText1,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Column(
+                    Row(
                       mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'SPRINGFIELD OFFICE',
-                          style: FlutterFlowTheme.of(context)
-                              .bodyText1
-                              .override(
-                                fontFamily: 'Poppins',
-                                color: FlutterFlowTheme.of(context).grayIcon,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'SPRINGFIELD OFFICE',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color:
+                                        FlutterFlowTheme.of(context).grayIcon,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            Text(
+                              FFAppState().capitoladdress,
+                              style: FlutterFlowTheme.of(context).bodyText1,
+                            ),
+                            Text(
+                              FFAppState().capitolphone,
+                              style: FlutterFlowTheme.of(context).bodyText1,
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'DISTRICT OFFICE',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color:
+                                          FlutterFlowTheme.of(context).grayIcon,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                               ),
-                        ),
-                        Text(
-                          FFAppState().capitoladdress,
-                          style: FlutterFlowTheme.of(context).bodyText1,
-                        ),
-                        Text(
-                          FFAppState().capitolphone,
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                              Text(
+                                FFAppState().address,
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                              Text(
+                                FFAppState().phonenumber,
+                                style: FlutterFlowTheme.of(context).bodyText1,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
