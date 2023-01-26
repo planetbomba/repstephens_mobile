@@ -678,6 +678,469 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     );
                   },
                 ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  child: Text(
+                    'SCHOOLS',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                StreamBuilder<List<ResourcesRecord>>(
+                  stream: queryResourcesRecord(
+                    queryBuilder: (resourcesRecord) =>
+                        resourcesRecord.where('category', isEqualTo: 'Schools'),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
+                        ),
+                      );
+                    }
+                    List<ResourcesRecord> schoolsResourcesRecordList =
+                        snapshot.data!;
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: schoolsResourcesRecordList.length,
+                      itemBuilder: (context, schoolsIndex) {
+                        final schoolsResourcesRecord =
+                            schoolsResourcesRecordList[schoolsIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          child: Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          schoolsResourcesRecord.name!,
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                fontSize: 16,
+                                                lineHeight: 1.1,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        schoolsResourcesRecord.phone!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                              fontSize: 15,
+                                            ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (schoolsResourcesRecord.website !=
+                                                  null &&
+                                              schoolsResourcesRecord.website !=
+                                                  '')
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 5, 0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 30,
+                                                borderWidth: 1,
+                                                buttonSize: 40,
+                                                icon: FaIcon(
+                                                  FontAwesomeIcons.globe,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  size: 20,
+                                                ),
+                                                onPressed: () async {
+                                                  await launchURL(
+                                                      schoolsResourcesRecord
+                                                          .website!);
+                                                },
+                                              ),
+                                            ),
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 30,
+                                            borderWidth: 1,
+                                            buttonSize: 40,
+                                            icon: Icon(
+                                              Icons.phone_forwarded,
+                                              color: Color(0xFF3B97F6),
+                                              size: 20,
+                                            ),
+                                            onPressed: () async {
+                                              await launchUrl(Uri(
+                                                scheme: 'tel',
+                                                path: schoolsResourcesRecord
+                                                    .phone!,
+                                              ));
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  child: Text(
+                    'HOSPITALS',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                StreamBuilder<List<ResourcesRecord>>(
+                  stream: queryResourcesRecord(
+                    queryBuilder: (resourcesRecord) => resourcesRecord
+                        .where('category', isEqualTo: 'Hospitals'),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
+                        ),
+                      );
+                    }
+                    List<ResourcesRecord> hospitalsResourcesRecordList =
+                        snapshot.data!;
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: hospitalsResourcesRecordList.length,
+                      itemBuilder: (context, hospitalsIndex) {
+                        final hospitalsResourcesRecord =
+                            hospitalsResourcesRecordList[hospitalsIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          child: Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          hospitalsResourcesRecord.name!,
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                fontSize: 16,
+                                                lineHeight: 1.1,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        hospitalsResourcesRecord.phone!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                              fontSize: 15,
+                                            ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (hospitalsResourcesRecord
+                                                      .website !=
+                                                  null &&
+                                              hospitalsResourcesRecord
+                                                      .website !=
+                                                  '')
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 5, 0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 30,
+                                                borderWidth: 1,
+                                                buttonSize: 40,
+                                                icon: FaIcon(
+                                                  FontAwesomeIcons.globe,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  size: 20,
+                                                ),
+                                                onPressed: () async {
+                                                  await launchURL(
+                                                      hospitalsResourcesRecord
+                                                          .website!);
+                                                },
+                                              ),
+                                            ),
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 30,
+                                            borderWidth: 1,
+                                            buttonSize: 40,
+                                            icon: Icon(
+                                              Icons.phone_forwarded,
+                                              color: Color(0xFF3B97F6),
+                                              size: 20,
+                                            ),
+                                            onPressed: () async {
+                                              await launchUrl(Uri(
+                                                scheme: 'tel',
+                                                path: hospitalsResourcesRecord
+                                                    .phone!,
+                                              ));
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  child: Text(
+                    'Utilities',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                StreamBuilder<List<ResourcesRecord>>(
+                  stream: queryResourcesRecord(
+                    queryBuilder: (resourcesRecord) => resourcesRecord
+                        .where('category', isEqualTo: 'Utilities'),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
+                        ),
+                      );
+                    }
+                    List<ResourcesRecord> utilitiesResourcesRecordList =
+                        snapshot.data!;
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: utilitiesResourcesRecordList.length,
+                      itemBuilder: (context, utilitiesIndex) {
+                        final utilitiesResourcesRecord =
+                            utilitiesResourcesRecordList[utilitiesIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          child: Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          utilitiesResourcesRecord.name!,
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                fontSize: 16,
+                                                lineHeight: 1.1,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        utilitiesResourcesRecord.phone!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                              fontSize: 15,
+                                            ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (utilitiesResourcesRecord
+                                                      .website !=
+                                                  null &&
+                                              utilitiesResourcesRecord
+                                                      .website !=
+                                                  '')
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 5, 0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 30,
+                                                borderWidth: 1,
+                                                buttonSize: 40,
+                                                icon: FaIcon(
+                                                  FontAwesomeIcons.globe,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  size: 20,
+                                                ),
+                                                onPressed: () async {
+                                                  await launchURL(
+                                                      utilitiesResourcesRecord
+                                                          .website!);
+                                                },
+                                              ),
+                                            ),
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 30,
+                                            borderWidth: 1,
+                                            buttonSize: 40,
+                                            icon: Icon(
+                                              Icons.phone_forwarded,
+                                              color: Color(0xFF3B97F6),
+                                              size: 20,
+                                            ),
+                                            onPressed: () async {
+                                              await launchUrl(Uri(
+                                                scheme: 'tel',
+                                                path: utilitiesResourcesRecord
+                                                    .phone!,
+                                              ));
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ],
             ),
           ),
