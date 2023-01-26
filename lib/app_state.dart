@@ -73,7 +73,8 @@ class FFAppState extends ChangeNotifier {
     prefs.setString('ff_capitolphone', _value);
   }
 
-  String _surveyurl = 'https://repstephens.com';
+  String _surveyurl =
+      'https://xxjhz1f0cr.postedstuff.com/V2-2HUw-QRDa-dBih-PEqP/';
   String get surveyurl => _surveyurl;
   set surveyurl(String _value) {
     _surveyurl = _value;
