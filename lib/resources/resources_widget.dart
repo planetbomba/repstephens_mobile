@@ -168,7 +168,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                               cookResourcesRecord.website != '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 15, 0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
                                                 borderRadius: 30,
@@ -178,8 +178,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .grayIcon,
-                                                  size: 24,
+                                                      .alternate,
+                                                  size: 20,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -195,10 +195,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             buttonSize: 40,
                                             icon: Icon(
                                               Icons.phone_forwarded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              size: 24,
+                                              color: Color(0xFF3B97F6),
+                                              size: 20,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -323,7 +321,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 15, 0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
                                                 borderRadius: 30,
@@ -333,8 +331,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .grayIcon,
-                                                  size: 24,
+                                                      .alternate,
+                                                  size: 20,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -350,10 +348,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             buttonSize: 40,
                                             icon: Icon(
                                               Icons.phone_forwarded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              size: 24,
+                                              color: Color(0xFF3B97F6),
+                                              size: 20,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -478,7 +474,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 15, 0),
+                                                  .fromSTEB(0, 0, 5, 0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
                                                 borderRadius: 30,
@@ -488,8 +484,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .grayIcon,
-                                                  size: 24,
+                                                      .alternate,
+                                                  size: 20,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -505,10 +501,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             buttonSize: 40,
                                             icon: Icon(
                                               Icons.phone_forwarded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              size: 24,
+                                              color: Color(0xFF3B97F6),
+                                              size: 20,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
