@@ -105,7 +105,7 @@ class _AboutBradWidgetState extends State<AboutBradWidget> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            'Hello World',
+                            aboutBradPagesRecord!.title!,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
