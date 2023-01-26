@@ -86,44 +86,43 @@ class _AboutBradWidgetState extends State<AboutBradWidget> {
             centerTitle: true,
             elevation: 2,
           ),
-          body: SafeArea(
-            child: GestureDetector(
-              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    CachedNetworkImage(
-                      imageUrl: aboutBradPagesRecord!.image!,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+          body: GestureDetector(
+            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  CachedNetworkImage(
+                    imageUrl: aboutBradPagesRecord!.image!,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          aboutBradPagesRecord!.title!,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Poppins',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                        Html(
+                          data:
+                              '<style> html, body { Font-size:17pt !important; line-height:1.4; margin:0; padding:0; } </style>${aboutBradPagesRecord!.content}',
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            aboutBradPagesRecord!.title!,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                          ),
-                          Html(
-                            data:
-                                '<style> html, body { Font-size:17pt !important; line-height:1.4; margin:0; padding:0; } </style>${aboutBradPagesRecord!.content}',
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
