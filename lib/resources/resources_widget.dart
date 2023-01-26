@@ -136,6 +136,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .primaryColor,
                                                 fontSize: 16,
+                                                lineHeight: 1.1,
                                               ),
                                         ),
                                       ],
