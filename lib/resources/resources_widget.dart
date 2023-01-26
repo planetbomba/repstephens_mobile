@@ -2,7 +2,6 @@ import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -124,20 +123,24 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                   children: [
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        AutoSizeText(
-                                          cookResourcesRecord.name!,
-                                          maxLines: 2,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
-                                                lineHeight: 1.1,
-                                              ),
+                                        Expanded(
+                                          child: Text(
+                                            cookResourcesRecord.name!,
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                  fontSize: 16,
+                                                  lineHeight: 1.1,
+                                                ),
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -222,7 +225,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     },
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
                     child: Text(
                       'STATE OF ILLINOIS',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
@@ -276,18 +279,24 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                   children: [
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          stateResourcesRecord.name!,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyText1
-                                              .override(
-                                                fontFamily: 'Poppins',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
-                                              ),
+                                        Expanded(
+                                          child: Text(
+                                            stateResourcesRecord.name!,
+                                            textAlign: TextAlign.start,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyText1
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryColor,
+                                                  fontSize: 16,
+                                                  lineHeight: 1.1,
+                                                ),
+                                          ),
                                         ),
                                       ],
                                     ),
