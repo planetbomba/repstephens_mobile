@@ -5,6 +5,7 @@ import 'settings_record.dart';
 import 'posts_record.dart';
 import 'videos_record.dart';
 import 'events_record.dart';
+import 'resources_record.dart';
 
 import 'index.dart';
 
@@ -19,6 +20,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   PostsRecord,
   VideosRecord,
   EventsRecord,
+  ResourcesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

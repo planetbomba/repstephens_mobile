@@ -9,6 +9,7 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(EventsRecord.serializer)
       ..add(PostsRecord.serializer)
+      ..add(ResourcesRecord.serializer)
       ..add(SettingsRecord.serializer)
       ..add(VideosRecord.serializer))
     .build();

@@ -120,6 +120,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 docRef: params.getParam(
                     'docRef', ParamType.DocumentReference, false, ['events']),
               ),
+            ),
+            FFRoute(
+              name: 'Resources',
+              path: 'resources',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Resources')
+                  : ResourcesWidget(),
+            ),
+            FFRoute(
+              name: 'AboutBrad',
+              path: 'aboutBrad',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'AboutBrad')
+                  : AboutBradWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

@@ -8,3 +8,5 @@ export 'news/news_widget.dart' show NewsWidget;
 export 'news_details/news_details_widget.dart' show NewsDetailsWidget;
 export 'single_video/single_video_widget.dart' show SingleVideoWidget;
 export 'event_details/event_details_widget.dart' show EventDetailsWidget;
+export 'resources/resources_widget.dart' show ResourcesWidget;
+export 'about_brad/about_brad_widget.dart' show AboutBradWidget;
