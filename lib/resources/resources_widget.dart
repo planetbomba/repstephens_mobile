@@ -73,8 +73,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     'COOK COUNTY',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Poppins',
-                          color: FlutterFlowTheme.of(context).grayIcon,
-                          fontSize: 18,
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -227,8 +227,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     'STATE OF ILLINOIS',
                     style: FlutterFlowTheme.of(context).bodyText1.override(
                           fontFamily: 'Poppins',
-                          color: FlutterFlowTheme.of(context).grayIcon,
-                          fontSize: 18,
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -251,17 +251,17 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         ),
                       );
                     }
-                    List<ResourcesRecord> stateResourcesRecordList =
+                    List<ResourcesRecord> federalResourcesRecordList =
                         snapshot.data!;
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: stateResourcesRecordList.length,
-                      itemBuilder: (context, stateIndex) {
-                        final stateResourcesRecord =
-                            stateResourcesRecordList[stateIndex];
+                      itemCount: federalResourcesRecordList.length,
+                      itemBuilder: (context, federalIndex) {
+                        final federalResourcesRecord =
+                            federalResourcesRecordList[federalIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                           child: Card(
@@ -281,7 +281,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          stateResourcesRecord.name!,
+                                          federalResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
@@ -303,7 +303,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        stateResourcesRecord.phone!,
+                                        federalResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -317,9 +317,9 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          if (stateResourcesRecord.website !=
+                                          if (federalResourcesRecord.website !=
                                                   null &&
-                                              stateResourcesRecord.website !=
+                                              federalResourcesRecord.website !=
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -338,7 +338,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
-                                                      stateResourcesRecord
+                                                      federalResourcesRecord
                                                           .website!);
                                                 },
                                               ),
@@ -358,8 +358,163 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             onPressed: () async {
                                               await launchUrl(Uri(
                                                 scheme: 'tel',
-                                                path:
-                                                    stateResourcesRecord.phone!,
+                                                path: federalResourcesRecord
+                                                    .phone!,
+                                              ));
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  child: Text(
+                    'FEDERAL RESOURCES',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                StreamBuilder<List<ResourcesRecord>>(
+                  stream: queryResourcesRecord(
+                    queryBuilder: (resourcesRecord) =>
+                        resourcesRecord.where('category', isEqualTo: 'Federal'),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
+                        ),
+                      );
+                    }
+                    List<ResourcesRecord> federalResourcesRecordList =
+                        snapshot.data!;
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: federalResourcesRecordList.length,
+                      itemBuilder: (context, federalIndex) {
+                        final federalResourcesRecord =
+                            federalResourcesRecordList[federalIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          child: Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          federalResourcesRecord.name!,
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                fontSize: 16,
+                                                lineHeight: 1.1,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        federalResourcesRecord.phone!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                              fontSize: 15,
+                                            ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (federalResourcesRecord.website !=
+                                                  null &&
+                                              federalResourcesRecord.website !=
+                                                  '')
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 15, 0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 30,
+                                                borderWidth: 1,
+                                                buttonSize: 40,
+                                                icon: FaIcon(
+                                                  FontAwesomeIcons.globe,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .grayIcon,
+                                                  size: 24,
+                                                ),
+                                                onPressed: () async {
+                                                  await launchURL(
+                                                      federalResourcesRecord
+                                                          .website!);
+                                                },
+                                              ),
+                                            ),
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 30,
+                                            borderWidth: 1,
+                                            buttonSize: 40,
+                                            icon: Icon(
+                                              Icons.phone_forwarded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                              size: 24,
+                                            ),
+                                            onPressed: () async {
+                                              await launchUrl(Uri(
+                                                scheme: 'tel',
+                                                path: federalResourcesRecord
+                                                    .phone!,
                                               ));
                                             },
                                           ),
