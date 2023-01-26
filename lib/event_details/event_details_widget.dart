@@ -82,188 +82,182 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
             centerTitle: true,
             elevation: 2,
           ),
-          body: SafeArea(
-            child: GestureDetector(
-              onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(0),
-                        topLeft: Radius.circular(8),
-                        topRight: Radius.circular(8),
-                      ),
-                      child: CachedNetworkImage(
-                        imageUrl: eventDetailsEventsRecord.eventImage!,
-                        width: double.infinity,
-                        height: 225,
-                        fit: BoxFit.cover,
-                      ),
+          body: GestureDetector(
+            onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(8),
+                      topRight: Radius.circular(8),
                     ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            eventDetailsEventsRecord.title!,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      lineHeight: 1.2,
-                                    ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'START DATE',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .grayIcon,
-                                          ),
-                                    ),
-                                    Text(
-                                      '${dateTimeFormat('MMMEd', eventDetailsEventsRecord.startDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.startDate)}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 14,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                                Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'END DATE',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .grayIcon,
-                                          ),
-                                    ),
-                                    Text(
-                                      '${dateTimeFormat('MMMEd', eventDetailsEventsRecord.endDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.endDate)}',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1,
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                            child: Text(
-                              'LOCATION',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color:
-                                        FlutterFlowTheme.of(context).grayIcon,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ),
-                          Text(
-                            eventDetailsEventsRecord.location!,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14,
-                                    ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                            child: Text(
-                              'DESCRIPTION',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color:
-                                        FlutterFlowTheme.of(context).grayIcon,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ),
-                          Html(
-                            data:
-                                '<style> html, body { Font-size:17pt; line-height:1.4; margin:0; padding:0; } </style>${eventDetailsEventsRecord.description}',
-                          ),
-                          if (eventDetailsEventsRecord.learnMore != null &&
-                              eventDetailsEventsRecord.learnMore != '')
-                            Align(
-                              alignment: AlignmentDirectional(0, 0),
-                              child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    await launchURL(
-                                        eventDetailsEventsRecord.learnMore!);
-                                  },
-                                  text: 'LEARN MORE',
-                                  options: FFButtonOptions(
-                                    width: 200,
-                                    height: 40,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryColor,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .subtitle2
+                    child: CachedNetworkImage(
+                      imageUrl: eventDetailsEventsRecord.eventImage!,
+                      width: double.infinity,
+                      height: 225,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          eventDetailsEventsRecord.title!,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyText1
+                              .override(
+                                fontFamily: 'Poppins',
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                lineHeight: 1.2,
+                              ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'START DATE',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
                                         .override(
                                           fontFamily: 'Poppins',
-                                          color: Colors.white,
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold,
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
                                         ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8),
                                   ),
+                                  Text(
+                                    '${dateTimeFormat('MMMEd', eventDetailsEventsRecord.startDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.startDate)}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 14,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'END DATE',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .grayIcon,
+                                        ),
+                                  ),
+                                  Text(
+                                    '${dateTimeFormat('MMMEd', eventDetailsEventsRecord.endDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.endDate)}',
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                          child: Text(
+                            'LOCATION',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).grayIcon,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ),
+                        Text(
+                          eventDetailsEventsRecord.location!,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 14,
+                                  ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                          child: Text(
+                            'DESCRIPTION',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyText1
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).grayIcon,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ),
+                        Html(
+                          data:
+                              '<style> html, body { Font-size:17pt; line-height:1.4; margin:0; padding:0; } </style>${eventDetailsEventsRecord.description}',
+                        ),
+                        if (eventDetailsEventsRecord.learnMore != null &&
+                            eventDetailsEventsRecord.learnMore != '')
+                          Align(
+                            alignment: AlignmentDirectional(0, 0),
+                            child: Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  await launchURL(
+                                      eventDetailsEventsRecord.learnMore!);
+                                },
+                                text: 'LEARN MORE',
+                                options: FFButtonOptions(
+                                  width: 200,
+                                  height: 40,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryColor,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .subtitle2
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                             ),
-                        ],
-                      ),
+                          ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
