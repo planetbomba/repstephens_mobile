@@ -80,8 +80,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                   StreamBuilder<List<ResourcesRecord>>(
                     stream: queryResourcesRecord(
                       queryBuilder: (resourcesRecord) => resourcesRecord
-                          .where('category', isEqualTo: 'County')
-                          .orderBy('name'),
+                          .where('category', isEqualTo: 'County'),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.

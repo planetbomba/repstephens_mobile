@@ -8,6 +8,7 @@ import 'schema/posts_record.dart';
 import 'schema/videos_record.dart';
 import 'schema/events_record.dart';
 import 'schema/resources_record.dart';
+import 'schema/pages_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -20,6 +21,7 @@ export 'schema/posts_record.dart';
 export 'schema/videos_record.dart';
 export 'schema/events_record.dart';
 export 'schema/resources_record.dart';
+export 'schema/pages_record.dart';
 
 /// Functions to query SettingsRecords (as a Stream and as a Future).
 Future<int> querySettingsRecordCount({
@@ -275,6 +277,58 @@ Future<FFFirestorePage<ResourcesRecord>> queryResourcesRecordPage({
     queryCollectionPage(
       ResourcesRecord.collection,
       ResourcesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query PagesRecords (as a Stream and as a Future).
+Future<int> queryPagesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PagesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PagesRecord>> queryPagesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PagesRecord.collection,
+      PagesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PagesRecord>> queryPagesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PagesRecord.collection,
+      PagesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<PagesRecord>> queryPagesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      PagesRecord.collection,
+      PagesRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

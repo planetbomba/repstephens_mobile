@@ -8,6 +8,7 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(EventsRecord.serializer)
+      ..add(PagesRecord.serializer)
       ..add(PostsRecord.serializer)
       ..add(ResourcesRecord.serializer)
       ..add(SettingsRecord.serializer)
