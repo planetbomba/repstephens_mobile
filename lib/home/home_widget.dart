@@ -610,7 +610,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 25),
+                padding: EdgeInsetsDirectional.fromSTEB(18, 8, 18, 25),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -622,7 +622,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       children: [
                         Column(
                           mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
                               'SPRINGFIELD OFFICE',
@@ -658,7 +658,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
                                 'DISTRICT OFFICE',
