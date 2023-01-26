@@ -137,18 +137,22 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
-                          child: Text(
-                            singleVideoVideosRecord.description!,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText2
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                  lineHeight: 1.6,
-                                ),
+                          child: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                            child: Text(
+                              singleVideoVideosRecord.description!,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText2
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryColor,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                    lineHeight: 1.6,
+                                  ),
+                            ),
                           ),
                         ),
                       ],

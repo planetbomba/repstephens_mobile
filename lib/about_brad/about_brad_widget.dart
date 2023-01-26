@@ -115,9 +115,12 @@ class _AboutBradWidgetState extends State<AboutBradWidget> {
                                 fontWeight: FontWeight.bold,
                               ),
                         ),
-                        Html(
-                          data:
-                              '<style> html, body { Font-size:17pt !important; line-height:1.4; margin:0; padding:0; } </style>${aboutBradPagesRecord!.content}',
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                          child: Html(
+                            data:
+                                '<style> html, body { Font-size:17pt !important; line-height:1.4; margin:0; padding:0; } </style>${aboutBradPagesRecord!.content}',
+                          ),
                         ),
                       ],
                     ),

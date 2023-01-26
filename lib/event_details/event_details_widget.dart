@@ -225,7 +225,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                             alignment: AlignmentDirectional(0, 0),
                             child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 40),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   await launchURL(
