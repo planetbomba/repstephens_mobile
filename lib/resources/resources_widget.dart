@@ -61,7 +61,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 40),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -249,17 +249,17 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         ),
                       );
                     }
-                    List<ResourcesRecord> federalResourcesRecordList =
+                    List<ResourcesRecord> stateResourcesRecordList =
                         snapshot.data!;
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: federalResourcesRecordList.length,
-                      itemBuilder: (context, federalIndex) {
-                        final federalResourcesRecord =
-                            federalResourcesRecordList[federalIndex];
+                      itemCount: stateResourcesRecordList.length,
+                      itemBuilder: (context, stateIndex) {
+                        final stateResourcesRecord =
+                            stateResourcesRecordList[stateIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
                           child: Card(
@@ -279,7 +279,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          federalResourcesRecord.name!,
+                                          stateResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyText1
@@ -301,7 +301,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        federalResourcesRecord.phone!,
+                                        stateResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyText1
                                             .override(
@@ -315,9 +315,9 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          if (federalResourcesRecord.website !=
+                                          if (stateResourcesRecord.website !=
                                                   null &&
-                                              federalResourcesRecord.website !=
+                                              stateResourcesRecord.website !=
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
@@ -336,7 +336,7 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
-                                                      federalResourcesRecord
+                                                      stateResourcesRecord
                                                           .website!);
                                                 },
                                               ),
@@ -354,8 +354,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             onPressed: () async {
                                               await launchUrl(Uri(
                                                 scheme: 'tel',
-                                                path: federalResourcesRecord
-                                                    .phone!,
+                                                path:
+                                                    stateResourcesRecord.phone!,
                                               ));
                                             },
                                           ),
@@ -508,6 +508,159 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                               await launchUrl(Uri(
                                                 scheme: 'tel',
                                                 path: federalResourcesRecord
+                                                    .phone!,
+                                              ));
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  child: Text(
+                    'SOCIAL SERVICES',
+                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).alternate,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+                StreamBuilder<List<ResourcesRecord>>(
+                  stream: queryResourcesRecord(
+                    queryBuilder: (resourcesRecord) =>
+                        resourcesRecord.where('category', isEqualTo: 'Social'),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
+                        ),
+                      );
+                    }
+                    List<ResourcesRecord> socialResourcesRecordList =
+                        snapshot.data!;
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      primary: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: socialResourcesRecordList.length,
+                      itemBuilder: (context, socialIndex) {
+                        final socialResourcesRecord =
+                            socialResourcesRecordList[socialIndex];
+                        return Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          child: Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10, 10, 10, 10),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          socialResourcesRecord.name!,
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyText1
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryColor,
+                                                fontSize: 16,
+                                                lineHeight: 1.1,
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        socialResourcesRecord.phone!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryColor,
+                                              fontSize: 15,
+                                            ),
+                                      ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          if (socialResourcesRecord.website !=
+                                                  null &&
+                                              socialResourcesRecord.website !=
+                                                  '')
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0, 0, 5, 0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 30,
+                                                borderWidth: 1,
+                                                buttonSize: 40,
+                                                icon: FaIcon(
+                                                  FontAwesomeIcons.globe,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  size: 20,
+                                                ),
+                                                onPressed: () async {
+                                                  await launchURL(
+                                                      socialResourcesRecord
+                                                          .website!);
+                                                },
+                                              ),
+                                            ),
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 30,
+                                            borderWidth: 1,
+                                            buttonSize: 40,
+                                            icon: Icon(
+                                              Icons.phone_forwarded,
+                                              color: Color(0xFF3B97F6),
+                                              size: 20,
+                                            ),
+                                            onPressed: () async {
+                                              await launchUrl(Uri(
+                                                scheme: 'tel',
+                                                path: socialResourcesRecord
                                                     .phone!,
                                               ));
                                             },
