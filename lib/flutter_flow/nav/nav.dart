@@ -124,16 +124,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Resources',
               path: 'resources',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Resources')
-                  : ResourcesWidget(),
+              builder: (context, params) => ResourcesWidget(),
             ),
             FFRoute(
               name: 'AboutBrad',
               path: 'aboutBrad',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'AboutBrad')
-                  : AboutBradWidget(),
+              builder: (context, params) => AboutBradWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),

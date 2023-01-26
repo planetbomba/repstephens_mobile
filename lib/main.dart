@@ -108,12 +108,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'Home': HomeWidget(),
-      'Video': VideoWidget(),
-      'Events': EventsWidget(),
-      'Toolbox': ToolboxWidget(),
       'News': NewsWidget(),
-      'Resources': ResourcesWidget(),
-      'AboutBrad': AboutBradWidget(),
+      'Events': EventsWidget(),
+      'Video': VideoWidget(),
+      'Toolbox': ToolboxWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -141,10 +139,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.video,
+              FontAwesomeIcons.newspaper,
               size: 24,
             ),
-            label: 'VIDEO',
+            label: 'NEWS',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -157,26 +155,10 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: FaIcon(
-              FontAwesomeIcons.tools,
+              FontAwesomeIcons.video,
               size: 24,
             ),
-            label: 'TOOLBOX',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.newspaper,
-              size: 24,
-            ),
-            label: 'NEWS',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(
-              FontAwesomeIcons.tools,
-              size: 24,
-            ),
-            label: 'TOOLBOX',
+            label: 'VIDEO',
             tooltip: '',
           ),
           BottomNavigationBarItem(
