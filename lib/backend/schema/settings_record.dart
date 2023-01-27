@@ -26,6 +26,15 @@ abstract class SettingsRecord
   @BuiltValueField(wireName: 'capitol_phone')
   String? get capitolPhone;
 
+  @BuiltValueField(wireName: 'survey_url')
+  String? get surveyUrl;
+
+  @BuiltValueField(wireName: 'contact_make')
+  String? get contactMake;
+
+  @BuiltValueField(wireName: 'law_make')
+  String? get lawMake;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -36,7 +45,10 @@ abstract class SettingsRecord
     ..email = ''
     ..website = ''
     ..capitolAddress = ''
-    ..capitolPhone = '';
+    ..capitolPhone = ''
+    ..surveyUrl = ''
+    ..contactMake = ''
+    ..lawMake = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('settings');
@@ -66,6 +78,9 @@ Map<String, dynamic> createSettingsRecordData({
   String? website,
   String? capitolAddress,
   String? capitolPhone,
+  String? surveyUrl,
+  String? contactMake,
+  String? lawMake,
 }) {
   final firestoreData = serializers.toFirestore(
     SettingsRecord.serializer,
@@ -76,7 +91,10 @@ Map<String, dynamic> createSettingsRecordData({
         ..email = email
         ..website = website
         ..capitolAddress = capitolAddress
-        ..capitolPhone = capitolPhone,
+        ..capitolPhone = capitolPhone
+        ..surveyUrl = surveyUrl
+        ..contactMake = contactMake
+        ..lawMake = lawMake,
     ),
   );
 

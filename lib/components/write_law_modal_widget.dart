@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -14,6 +15,7 @@ class WriteLawModalWidget extends StatefulWidget {
 }
 
 class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
+  ApiCallResponse? apiResultau8;
   TextEditingController? txtAboutController;
   TextEditingController? txtEmailController;
   TextEditingController? txtNameController;
@@ -409,6 +411,17 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             !formKey.currentState!.validate()) {
                           return;
                         }
+
+                        apiResultau8 = await LawMakeCall.call(
+                          name: txtNameController!.text,
+                          email: txtEmailController!.text,
+                          phone: txtPhoneController!.text,
+                          about: txtAboutController!.text,
+                          law: txtLawController!.text,
+                        );
+                        Navigator.pop(context);
+
+                        setState(() {});
                       },
                       text: 'SEND MESSAGE',
                       options: FFButtonOptions(

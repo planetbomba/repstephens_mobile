@@ -22,6 +22,8 @@ class FFAppState extends ChangeNotifier {
     _capitoladdress = prefs.getString('ff_capitoladdress') ?? _capitoladdress;
     _capitolphone = prefs.getString('ff_capitolphone') ?? _capitolphone;
     _surveyurl = prefs.getString('ff_surveyurl') ?? _surveyurl;
+    _contactmake = prefs.getString('ff_contactmake') ?? _contactmake;
+    _lawmake = prefs.getString('ff_lawmake') ?? _lawmake;
   }
 
   void update(VoidCallback callback) {
@@ -79,6 +81,20 @@ class FFAppState extends ChangeNotifier {
   set surveyurl(String _value) {
     _surveyurl = _value;
     prefs.setString('ff_surveyurl', _value);
+  }
+
+  String _contactmake = '';
+  String get contactmake => _contactmake;
+  set contactmake(String _value) {
+    _contactmake = _value;
+    prefs.setString('ff_contactmake', _value);
+  }
+
+  String _lawmake = '';
+  String get lawmake => _lawmake;
+  set lawmake(String _value) {
+    _lawmake = _value;
+    prefs.setString('ff_lawmake', _value);
   }
 }
 

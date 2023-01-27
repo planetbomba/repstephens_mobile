@@ -391,7 +391,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                       padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 8),
                       child: InkWell(
                         onTap: () async {
-                          await launchURL(FFAppState().surveyurl);
+                          await launchURL(getRemoteConfigString('survey_url'));
                         },
                         child: Container(
                           width: double.infinity,

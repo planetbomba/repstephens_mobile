@@ -17,7 +17,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
   TextEditingController? txtEmailController;
   TextEditingController? txtNameController;
   TextEditingController? txtPhoneController;
-  final txtPhoneMask = MaskTextInputFormatter(mask: '(###) ###-##-##');
+  final txtPhoneMask = MaskTextInputFormatter(mask: '(###) ###-####');
   TextEditingController? txtSubjectController;
   TextEditingController? txtMessageController;
   final formKey = GlobalKey<FormState>();
@@ -279,6 +279,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
+                          keyboardType: TextInputType.phone,
                           inputFormatters: [txtPhoneMask],
                         ),
                       ),

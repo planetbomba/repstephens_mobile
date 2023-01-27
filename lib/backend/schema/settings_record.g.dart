@@ -63,6 +63,27 @@ class _$SettingsRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.surveyUrl;
+    if (value != null) {
+      result
+        ..add('survey_url')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.contactMake;
+    if (value != null) {
+      result
+        ..add('contact_make')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.lawMake;
+    if (value != null) {
+      result
+        ..add('law_make')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -110,6 +131,18 @@ class _$SettingsRecordSerializer
           result.capitolPhone = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'survey_url':
+          result.surveyUrl = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'contact_make':
+          result.contactMake = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'law_make':
+          result.lawMake = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -137,6 +170,12 @@ class _$SettingsRecord extends SettingsRecord {
   @override
   final String? capitolPhone;
   @override
+  final String? surveyUrl;
+  @override
+  final String? contactMake;
+  @override
+  final String? lawMake;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$SettingsRecord([void Function(SettingsRecordBuilder)? updates]) =>
@@ -149,6 +188,9 @@ class _$SettingsRecord extends SettingsRecord {
       this.website,
       this.capitolAddress,
       this.capitolPhone,
+      this.surveyUrl,
+      this.contactMake,
+      this.lawMake,
       this.ffRef})
       : super._();
 
@@ -170,6 +212,9 @@ class _$SettingsRecord extends SettingsRecord {
         website == other.website &&
         capitolAddress == other.capitolAddress &&
         capitolPhone == other.capitolPhone &&
+        surveyUrl == other.surveyUrl &&
+        contactMake == other.contactMake &&
+        lawMake == other.lawMake &&
         ffRef == other.ffRef;
   }
 
@@ -179,11 +224,19 @@ class _$SettingsRecord extends SettingsRecord {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, phoneNumber.hashCode), address.hashCode),
-                        email.hashCode),
-                    website.hashCode),
-                capitolAddress.hashCode),
-            capitolPhone.hashCode),
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc($jc(0, phoneNumber.hashCode),
+                                        address.hashCode),
+                                    email.hashCode),
+                                website.hashCode),
+                            capitolAddress.hashCode),
+                        capitolPhone.hashCode),
+                    surveyUrl.hashCode),
+                contactMake.hashCode),
+            lawMake.hashCode),
         ffRef.hashCode));
   }
 
@@ -196,6 +249,9 @@ class _$SettingsRecord extends SettingsRecord {
           ..add('website', website)
           ..add('capitolAddress', capitolAddress)
           ..add('capitolPhone', capitolPhone)
+          ..add('surveyUrl', surveyUrl)
+          ..add('contactMake', contactMake)
+          ..add('lawMake', lawMake)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -230,6 +286,18 @@ class SettingsRecordBuilder
   String? get capitolPhone => _$this._capitolPhone;
   set capitolPhone(String? capitolPhone) => _$this._capitolPhone = capitolPhone;
 
+  String? _surveyUrl;
+  String? get surveyUrl => _$this._surveyUrl;
+  set surveyUrl(String? surveyUrl) => _$this._surveyUrl = surveyUrl;
+
+  String? _contactMake;
+  String? get contactMake => _$this._contactMake;
+  set contactMake(String? contactMake) => _$this._contactMake = contactMake;
+
+  String? _lawMake;
+  String? get lawMake => _$this._lawMake;
+  set lawMake(String? lawMake) => _$this._lawMake = lawMake;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -247,6 +315,9 @@ class SettingsRecordBuilder
       _website = $v.website;
       _capitolAddress = $v.capitolAddress;
       _capitolPhone = $v.capitolPhone;
+      _surveyUrl = $v.surveyUrl;
+      _contactMake = $v.contactMake;
+      _lawMake = $v.lawMake;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -276,6 +347,9 @@ class SettingsRecordBuilder
             website: website,
             capitolAddress: capitolAddress,
             capitolPhone: capitolPhone,
+            surveyUrl: surveyUrl,
+            contactMake: contactMake,
+            lawMake: lawMake,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
