@@ -41,6 +41,38 @@ class LawMakeCall {
   }
 }
 
+class ContactMakeCall {
+  static Future<ApiCallResponse> call({
+    String? name = '',
+    String? email = '',
+    String? phone = '',
+    String? subject = '',
+    String? message = '',
+  }) {
+    final body = '''
+{
+  "name": "${name}",
+  "email": "${email}",
+  "phone": "${phone}",
+  "subject": "${subject}",
+  "message": "${message}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Contact Make',
+      apiUrl: 'https://hook.us1.make.com/jyh5tgqlbw1cpprhnpkq6g713jt0b2nu',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: body,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
