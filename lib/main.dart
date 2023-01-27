@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:provider/provider.dart';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -18,14 +18,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initFirebase();
 
-  final appState = FFAppState(); // Initialize FFAppState
-
   await initializeFirebaseRemoteConfig();
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => appState,
-    child: MyApp(),
-  ));
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {

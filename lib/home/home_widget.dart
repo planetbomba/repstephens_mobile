@@ -9,7 +9,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -31,8 +30,6 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -544,7 +541,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             onPressed: () async {
                               await launchUrl(Uri(
                                 scheme: 'tel',
-                                path: FFAppState().phonenumber,
+                                path: getRemoteConfigString('phone_number'),
                               ));
                             },
                             text: 'CALL OUR OFFICE',
@@ -637,18 +634,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   ),
                             ),
                             Text(
-                              FFAppState().capitoladdress,
+                              getRemoteConfigString('capitol_address'),
                               style: FlutterFlowTheme.of(context).bodyText1,
                             ),
                             InkWell(
                               onTap: () async {
                                 await launchUrl(Uri(
                                   scheme: 'tel',
-                                  path: FFAppState().capitolphone,
+                                  path: getRemoteConfigString('capitol_phone'),
                                 ));
                               },
                               child: Text(
-                                FFAppState().capitolphone,
+                                getRemoteConfigString('capitol_phone'),
                                 style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                             ),
@@ -673,18 +670,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     ),
                               ),
                               Text(
-                                FFAppState().address,
+                                getRemoteConfigString('address'),
                                 style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                               InkWell(
                                 onTap: () async {
                                   await launchUrl(Uri(
                                     scheme: 'tel',
-                                    path: FFAppState().phonenumber,
+                                    path: getRemoteConfigString('phone_number'),
                                   ));
                                 },
                                 child: Text(
-                                  FFAppState().phonenumber,
+                                  getRemoteConfigString('phone_number'),
                                   style: FlutterFlowTheme.of(context).bodyText1,
                                 ),
                               ),

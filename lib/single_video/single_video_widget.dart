@@ -7,7 +7,6 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 
 class SingleVideoWidget extends StatefulWidget {
@@ -27,8 +26,6 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<VideosRecord>(
       stream: VideosRecord.getDocument(widget.docRef!),
       builder: (context, snapshot) {

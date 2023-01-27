@@ -5,7 +5,6 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-import 'package:provider/provider.dart';
 
 class WriteLawModalWidget extends StatefulWidget {
   const WriteLawModalWidget({Key? key}) : super(key: key);
@@ -46,8 +45,6 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Material(
       color: Colors.transparent,
       elevation: 5,

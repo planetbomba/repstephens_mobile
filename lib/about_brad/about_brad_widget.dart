@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class AboutBradWidget extends StatefulWidget {
   const AboutBradWidget({Key? key}) : super(key: key);
@@ -28,8 +27,6 @@ class _AboutBradWidgetState extends State<AboutBradWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return StreamBuilder<List<PagesRecord>>(
       stream: queryPagesRecord(
         queryBuilder: (pagesRecord) =>
