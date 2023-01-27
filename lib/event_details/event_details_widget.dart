@@ -108,31 +108,33 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      Builder(
-                        builder: (context) => Align(
-                          alignment: AlignmentDirectional(0.9, 0),
-                          child: FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 50,
-                            fillColor: FlutterFlowTheme.of(context).alternate,
-                            icon: Icon(
-                              Icons.ios_share,
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                              size: 25,
+                      if (eventDetailsEventsRecord.learnMore != null &&
+                          eventDetailsEventsRecord.learnMore != '')
+                        Builder(
+                          builder: (context) => Align(
+                            alignment: AlignmentDirectional(0.9, 0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 50,
+                              fillColor: FlutterFlowTheme.of(context).alternate,
+                              icon: Icon(
+                                Icons.ios_share,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                size: 25,
+                              ),
+                              onPressed: () async {
+                                await Share.share(
+                                  eventDetailsEventsRecord.learnMore!,
+                                  sharePositionOrigin:
+                                      getWidgetBoundingBox(context),
+                                );
+                              },
                             ),
-                            onPressed: () async {
-                              await Share.share(
-                                eventDetailsEventsRecord.learnMore!,
-                                sharePositionOrigin:
-                                    getWidgetBoundingBox(context),
-                              );
-                            },
                           ),
                         ),
-                      ),
                     ],
                   ),
                   Padding(

@@ -103,30 +103,33 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                             fit: BoxFit.cover,
                           ),
                         ),
-                        Builder(
-                          builder: (context) => Align(
-                            alignment: AlignmentDirectional(0.9, 0.05),
-                            child: FlutterFlowIconButton(
-                              borderRadius: 30,
-                              borderWidth: 1,
-                              buttonSize: 50,
-                              fillColor: FlutterFlowTheme.of(context).alternate,
-                              icon: Icon(
-                                Icons.ios_share,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                size: 25,
+                        if (newsDetailsPostsRecord.readMore != null &&
+                            newsDetailsPostsRecord.readMore != '')
+                          Builder(
+                            builder: (context) => Align(
+                              alignment: AlignmentDirectional(0.9, 0.05),
+                              child: FlutterFlowIconButton(
+                                borderRadius: 30,
+                                borderWidth: 1,
+                                buttonSize: 50,
+                                fillColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                icon: Icon(
+                                  Icons.ios_share,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  size: 25,
+                                ),
+                                onPressed: () async {
+                                  await Share.share(
+                                    newsDetailsPostsRecord.readMore!,
+                                    sharePositionOrigin:
+                                        getWidgetBoundingBox(context),
+                                  );
+                                },
                               ),
-                              onPressed: () async {
-                                await Share.share(
-                                  newsDetailsPostsRecord.readMore!,
-                                  sharePositionOrigin:
-                                      getWidgetBoundingBox(context),
-                                );
-                              },
                             ),
                           ),
-                        ),
                       ],
                     ),
                   ),
