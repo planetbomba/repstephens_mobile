@@ -104,8 +104,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                         child: CachedNetworkImage(
                           imageUrl: eventDetailsEventsRecord.eventImage!,
                           width: double.infinity,
-                          height: 225,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitWidth,
                         ),
                       ),
                       if (eventDetailsEventsRecord.learnMore != null &&
