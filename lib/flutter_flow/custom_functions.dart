@@ -13,3 +13,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 String stripTags(String htmlString) {
   return Bidi.stripHtmlIfNeeded(htmlString);
 }
+
+String? getVideoLink(String? videopath) {
+  return videopath.toString();
+}

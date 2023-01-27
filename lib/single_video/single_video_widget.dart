@@ -3,10 +3,12 @@ import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_youtube_player.dart';
+import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SingleVideoWidget extends StatefulWidget {
   const SingleVideoWidget({
@@ -94,6 +96,7 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
                           child: Text(
@@ -104,6 +107,27 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                                   fontSize: 20,
                                   lineHeight: 1.2,
                                 ),
+                          ),
+                        ),
+                        Builder(
+                          builder: (context) => FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 50,
+                            icon: Icon(
+                              Icons.ios_share,
+                              color: FlutterFlowTheme.of(context).alternate,
+                              size: 25,
+                            ),
+                            onPressed: () async {
+                              await Share.share(
+                                functions.getVideoLink(
+                                    singleVideoVideosRecord.youtubeLink)!,
+                                sharePositionOrigin:
+                                    getWidgetBoundingBox(context),
+                              );
+                            },
                           ),
                         ),
                       ],
