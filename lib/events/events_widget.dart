@@ -68,6 +68,12 @@ class _EventsWidgetState extends State<EventsWidget> {
                 );
               }
               List<EventsRecord> listViewEventsRecordList = snapshot.data!;
+              if (listViewEventsRecordList.isEmpty) {
+                return Image.asset(
+                  'assets/images/noEvents.jpg',
+                  width: double.infinity,
+                );
+              }
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.vertical,
