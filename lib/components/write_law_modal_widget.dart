@@ -417,6 +417,21 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                           law: txtLawController!.text,
                         );
                         Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Thanks for your input...',
+                              style: GoogleFonts.getFont(
+                                'Roboto',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                            duration: Duration(milliseconds: 3000),
+                            backgroundColor: Color(0xFFB8FFB4),
+                          ),
+                        );
 
                         setState(() {});
                       },

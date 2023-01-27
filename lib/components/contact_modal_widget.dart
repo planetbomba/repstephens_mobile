@@ -422,12 +422,12 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                                 'Roboto',
                                 color:
                                     FlutterFlowTheme.of(context).primaryColor,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
                               ),
                             ),
                             duration: Duration(milliseconds: 3000),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).gray200,
+                            backgroundColor: Color(0xFFB8FFB4),
                           ),
                         );
                       },
