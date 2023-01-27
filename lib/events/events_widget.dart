@@ -115,8 +115,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                               child: CachedNetworkImage(
                                 imageUrl: listViewEventsRecord.eventImage!,
                                 width: double.infinity,
-                                height: 225,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.fitWidth,
                               ),
                             ),
                             Padding(
