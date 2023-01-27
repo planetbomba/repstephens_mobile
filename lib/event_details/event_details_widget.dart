@@ -10,6 +10,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class EventDetailsWidget extends StatefulWidget {
   const EventDetailsWidget({
@@ -90,19 +91,49 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(0),
-                      topLeft: Radius.circular(8),
-                      topRight: Radius.circular(8),
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: eventDetailsEventsRecord.eventImage!,
-                      width: double.infinity,
-                      height: 225,
-                      fit: BoxFit.cover,
-                    ),
+                  Stack(
+                    alignment: AlignmentDirectional(0, 0.8),
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                          topLeft: Radius.circular(8),
+                          topRight: Radius.circular(8),
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: eventDetailsEventsRecord.eventImage!,
+                          width: double.infinity,
+                          height: 225,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Builder(
+                        builder: (context) => Align(
+                          alignment: AlignmentDirectional(0.9, 0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 50,
+                            fillColor: FlutterFlowTheme.of(context).alternate,
+                            icon: Icon(
+                              Icons.ios_share,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              size: 25,
+                            ),
+                            onPressed: () async {
+                              await Share.share(
+                                eventDetailsEventsRecord.learnMore!,
+                                sharePositionOrigin:
+                                    getWidgetBoundingBox(context),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(15, 15, 15, 15),
