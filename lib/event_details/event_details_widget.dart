@@ -211,46 +211,67 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                          child: Text(
-                            'LOCATION',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: FlutterFlowTheme.of(context).grayIcon,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                        if (eventDetailsEventsRecord.location != null &&
+                            eventDetailsEventsRecord.location != '')
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                                child: Text(
+                                  'LOCATION',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
+                              ),
+                              Text(
+                                eventDetailsEventsRecord.location!,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14,
+                                    ),
+                              ),
+                            ],
                           ),
-                        ),
-                        Text(
-                          eventDetailsEventsRecord.location!,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 14,
-                                  ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
-                          child: Text(
-                            'DESCRIPTION',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyText1
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: FlutterFlowTheme.of(context).grayIcon,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                        if (eventDetailsEventsRecord.description != null &&
+                            eventDetailsEventsRecord.description != '')
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
+                                child: Text(
+                                  'DESCRIPTION',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: FlutterFlowTheme.of(context)
+                                            .grayIcon,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                 ),
+                              ),
+                              Html(
+                                data:
+                                    '<style> html, body { Font-size:17pt; line-height:1.4; margin:0; padding:0; } </style>${eventDetailsEventsRecord.description}',
+                              ),
+                            ],
                           ),
-                        ),
-                        Html(
-                          data:
-                              '<style> html, body { Font-size:17pt; line-height:1.4; margin:0; padding:0; } </style>${eventDetailsEventsRecord.description}',
-                        ),
                         if (eventDetailsEventsRecord.learnMore != null &&
                             eventDetailsEventsRecord.learnMore != '')
                           Align(
