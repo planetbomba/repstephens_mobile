@@ -1,3 +1,4 @@
+import '../backend/api_requests/api_calls.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -405,7 +406,30 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           return;
                         }
 
-                        context.pop();
+                        await ContactMakeCall.call(
+                          name: txtNameController!.text,
+                          email: txtEmailController!.text,
+                          phone: txtPhoneController!.text,
+                          subject: txtSubjectController!.text,
+                          message: txtMessageController!.text,
+                        );
+                        Navigator.pop(context);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Your message has been sent...',
+                              style: GoogleFonts.getFont(
+                                'Roboto',
+                                color:
+                                    FlutterFlowTheme.of(context).primaryColor,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            duration: Duration(milliseconds: 3000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).gray200,
+                          ),
+                        );
                       },
                       text: 'SEND MESSAGE',
                       options: FFButtonOptions(

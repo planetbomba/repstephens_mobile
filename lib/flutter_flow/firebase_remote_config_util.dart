@@ -12,9 +12,9 @@ Future initializeFirebaseRemoteConfig() async {
     'address': '',
     'capitol_phone': '',
     'email': '',
-    'phone_number': '',
     'website': '',
     'capitol_address': '',
+    'phone_number': '',
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }
