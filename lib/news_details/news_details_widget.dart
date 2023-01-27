@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:share_plus/share_plus.dart';
 
 class NewsDetailsWidget extends StatefulWidget {
   const NewsDetailsWidget({
@@ -88,13 +89,45 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(0),
-                    child: CachedNetworkImage(
-                      imageUrl: newsDetailsPostsRecord.image!,
-                      width: double.infinity,
-                      height: 200,
-                      fit: BoxFit.cover,
+                  Container(
+                    width: double.infinity,
+                    child: Stack(
+                      alignment: AlignmentDirectional(0, 0.8),
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(0),
+                          child: CachedNetworkImage(
+                            imageUrl: newsDetailsPostsRecord.image!,
+                            width: double.infinity,
+                            height: 200,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Builder(
+                          builder: (context) => Align(
+                            alignment: AlignmentDirectional(0.9, 0.05),
+                            child: FlutterFlowIconButton(
+                              borderRadius: 30,
+                              borderWidth: 1,
+                              buttonSize: 50,
+                              fillColor: FlutterFlowTheme.of(context).alternate,
+                              icon: Icon(
+                                Icons.ios_share,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                size: 25,
+                              ),
+                              onPressed: () async {
+                                await Share.share(
+                                  newsDetailsPostsRecord.readMore!,
+                                  sharePositionOrigin:
+                                      getWidgetBoundingBox(context),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Padding(

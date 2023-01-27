@@ -340,7 +340,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'If you could write a law...',
+                                          'IF YOU COULD WRITE A LAW…',
                                           style: FlutterFlowTheme.of(context)
                                               .subtitle1
                                               .override(
@@ -369,7 +369,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .grayIcon,
-                                                          fontSize: 14,
+                                                          fontSize: 16,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -437,7 +437,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Take our Survey',
+                                          'TAKE OUR SURVEY',
                                           style: FlutterFlowTheme.of(context)
                                               .subtitle1
                                               .override(
@@ -466,7 +466,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .grayIcon,
-                                                          fontSize: 14,
+                                                          fontSize: 16,
                                                           fontWeight:
                                                               FontWeight.normal,
                                                         ),
@@ -632,7 +632,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     fontFamily: 'Poppins',
                                     color:
                                         FlutterFlowTheme.of(context).grayIcon,
-                                    fontSize: 15,
+                                    fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -668,7 +668,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       fontFamily: 'Poppins',
                                       color:
                                           FlutterFlowTheme.of(context).grayIcon,
-                                      fontSize: 15,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
