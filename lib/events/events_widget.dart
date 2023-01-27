@@ -105,19 +105,21 @@ class _EventsWidgetState extends State<EventsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(0),
-                                bottomRight: Radius.circular(0),
-                                topLeft: Radius.circular(8),
-                                topRight: Radius.circular(8),
+                            if (listViewEventsRecord.eventImage != null &&
+                                listViewEventsRecord.eventImage != '')
+                              ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(0),
+                                  bottomRight: Radius.circular(0),
+                                  topLeft: Radius.circular(8),
+                                  topRight: Radius.circular(8),
+                                ),
+                                child: CachedNetworkImage(
+                                  imageUrl: listViewEventsRecord.eventImage!,
+                                  width: double.infinity,
+                                  fit: BoxFit.fitWidth,
+                                ),
                               ),
-                              child: CachedNetworkImage(
-                                imageUrl: listViewEventsRecord.eventImage!,
-                                width: double.infinity,
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
