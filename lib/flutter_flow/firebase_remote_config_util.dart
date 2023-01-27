@@ -10,11 +10,11 @@ Future initializeFirebaseRemoteConfig() async {
     'law_make': '',
     'survey_url': '',
     'address': '',
-    'capitol_address': '',
     'capitol_phone': '',
     'email': '',
     'phone_number': '',
     'website': '',
+    'capitol_address': '',
   });
   await FirebaseRemoteConfig.instance.fetchAndActivate();
 }
