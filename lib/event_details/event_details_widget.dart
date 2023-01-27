@@ -94,19 +94,21 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                   Stack(
                     alignment: AlignmentDirectional(0, 0.8),
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(0),
-                          topLeft: Radius.circular(8),
-                          topRight: Radius.circular(8),
+                      if (eventDetailsEventsRecord.eventImage != null &&
+                          eventDetailsEventsRecord.eventImage != '')
+                        ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(0),
+                            bottomRight: Radius.circular(0),
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                          ),
+                          child: CachedNetworkImage(
+                            imageUrl: eventDetailsEventsRecord.eventImage!,
+                            width: double.infinity,
+                            fit: BoxFit.fitWidth,
+                          ),
                         ),
-                        child: CachedNetworkImage(
-                          imageUrl: eventDetailsEventsRecord.eventImage!,
-                          width: double.infinity,
-                          fit: BoxFit.fitWidth,
-                        ),
-                      ),
                       if (eventDetailsEventsRecord.learnMore != null &&
                           eventDetailsEventsRecord.learnMore != '')
                         Builder(
