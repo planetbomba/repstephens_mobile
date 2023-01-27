@@ -3,7 +3,6 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 
 class ContactModalWidget extends StatefulWidget {
@@ -17,7 +16,6 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
   TextEditingController? txtEmailController;
   TextEditingController? txtNameController;
   TextEditingController? txtPhoneController;
-  final txtPhoneMask = MaskTextInputFormatter(mask: '(###) ###-####');
   TextEditingController? txtSubjectController;
   TextEditingController? txtMessageController;
   final formKey = GlobalKey<FormState>();
@@ -280,7 +278,6 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
                           keyboardType: TextInputType.phone,
-                          inputFormatters: [txtPhoneMask],
                         ),
                       ),
                       Padding(
