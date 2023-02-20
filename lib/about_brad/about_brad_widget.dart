@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'about_brad_model.dart';
+export 'about_brad_model.dart';
 
 class AboutBradWidget extends StatefulWidget {
   const AboutBradWidget({Key? key}) : super(key: key);
@@ -16,11 +19,21 @@ class AboutBradWidget extends StatefulWidget {
 }
 
 class _AboutBradWidgetState extends State<AboutBradWidget> {
-  final _unfocusNode = FocusNode();
+  late AboutBradModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => AboutBradModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -75,8 +88,8 @@ class _AboutBradWidgetState extends State<AboutBradWidget> {
               },
             ),
             title: Image.asset(
-              'assets/images/logoHorizontal.png',
-              height: 40,
+              'assets/images/STEPHENSLogo2.png',
+              height: 35,
               fit: BoxFit.cover,
             ),
             actions: [],

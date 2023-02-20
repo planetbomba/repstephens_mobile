@@ -9,7 +9,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'event_details_model.dart';
+export 'event_details_model.dart';
 
 class EventDetailsWidget extends StatefulWidget {
   const EventDetailsWidget({
@@ -24,11 +27,21 @@ class EventDetailsWidget extends StatefulWidget {
 }
 
 class _EventDetailsWidgetState extends State<EventDetailsWidget> {
-  final _unfocusNode = FocusNode();
+  late EventDetailsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => EventDetailsModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -72,8 +85,8 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
               },
             ),
             title: Image.asset(
-              'assets/images/logoHorizontal.png',
-              height: 40,
+              'assets/images/STEPHENSLogo2.png',
+              height: 35,
               fit: BoxFit.cover,
             ),
             actions: [],

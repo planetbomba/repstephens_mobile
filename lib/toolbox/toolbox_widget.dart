@@ -6,6 +6,9 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'toolbox_model.dart';
+export 'toolbox_model.dart';
 
 class ToolboxWidget extends StatefulWidget {
   const ToolboxWidget({Key? key}) : super(key: key);
@@ -16,11 +19,21 @@ class ToolboxWidget extends StatefulWidget {
 
 class _ToolboxWidgetState extends State<ToolboxWidget>
     with TickerProviderStateMixin {
-  final _unfocusNode = FocusNode();
+  late ToolboxModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ToolboxModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -34,8 +47,8 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
         title: Image.asset(
-          'assets/images/logoHorizontal.png',
-          height: 40,
+          'assets/images/STEPHENSLogo2.png',
+          height: 35,
           fit: BoxFit.cover,
         ),
         actions: [],

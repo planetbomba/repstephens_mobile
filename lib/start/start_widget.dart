@@ -5,6 +5,9 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'start_model.dart';
+export 'start_model.dart';
 
 class StartWidget extends StatefulWidget {
   const StartWidget({Key? key}) : super(key: key);
@@ -14,20 +17,19 @@ class StartWidget extends StatefulWidget {
 }
 
 class _StartWidgetState extends State<StartWidget> {
-  int timerMilliseconds = 1500;
-  String timerValue = StopWatchTimer.getDisplayTime(1500, milliSecond: false);
-  StopWatchTimer timerController =
-      StopWatchTimer(mode: StopWatchMode.countDown);
+  late StartModel _model;
 
-  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
+    _model = createModel(context, () => StartModel());
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      timerController.onExecute.add(StopWatchExecute.start);
+      _model.timerController.onExecute.add(StopWatchExecute.start);
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -35,8 +37,9 @@ class _StartWidgetState extends State<StartWidget> {
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
-    timerController.dispose();
     super.dispose();
   }
 
@@ -50,20 +53,20 @@ class _StartWidgetState extends State<StartWidget> {
         child: Stack(
           children: [
             Image.asset(
-              'assets/images/BS_Splasher.jpg',
+              'assets/images/BS_Splasher2.png',
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height * 1,
               fit: BoxFit.cover,
             ),
             FlutterFlowTimer(
-              initialTime: timerMilliseconds,
+              initialTime: _model.timerMilliseconds,
               getDisplayTime: (value) =>
                   StopWatchTimer.getDisplayTime(value, milliSecond: false),
-              timer: timerController,
+              timer: _model.timerController,
               updateStateInterval: Duration(milliseconds: 500),
               onChanged: (value, displayTime, shouldUpdate) {
-                timerMilliseconds = value;
-                timerValue = displayTime;
+                _model.timerMilliseconds = value;
+                _model.timerValue = displayTime;
                 if (shouldUpdate) setState(() {});
               },
               onEnded: () async {

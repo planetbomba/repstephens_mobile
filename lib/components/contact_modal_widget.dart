@@ -4,6 +4,9 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'contact_modal_model.dart';
+export 'contact_modal_model.dart';
 
 class ContactModalWidget extends StatefulWidget {
   const ContactModalWidget({Key? key}) : super(key: key);
@@ -13,30 +16,30 @@ class ContactModalWidget extends StatefulWidget {
 }
 
 class _ContactModalWidgetState extends State<ContactModalWidget> {
-  TextEditingController? txtEmailController;
-  TextEditingController? txtNameController;
-  TextEditingController? txtPhoneController;
-  TextEditingController? txtSubjectController;
-  TextEditingController? txtMessageController;
-  final formKey = GlobalKey<FormState>();
+  late ContactModalModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    txtEmailController = TextEditingController();
-    txtNameController = TextEditingController();
-    txtPhoneController = TextEditingController();
-    txtSubjectController = TextEditingController();
-    txtMessageController = TextEditingController();
+    _model = createModel(context, () => ContactModalModel());
+
+    _model.txtNameController ??= TextEditingController();
+    _model.txtEmailController ??= TextEditingController();
+    _model.txtPhoneController ??= TextEditingController();
+    _model.txtSubjectController ??= TextEditingController();
+    _model.txtMessageController ??= TextEditingController();
   }
 
   @override
   void dispose() {
-    txtEmailController?.dispose();
-    txtNameController?.dispose();
-    txtPhoneController?.dispose();
-    txtSubjectController?.dispose();
-    txtMessageController?.dispose();
+    _model.maybeDispose();
+
     super.dispose();
   }
 
@@ -96,7 +99,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                 ),
               ),
               Form(
-                key: formKey,
+                key: _model.formKey,
                 autovalidateMode: AutovalidateMode.disabled,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
@@ -106,7 +109,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtNameController,
+                          controller: _model.txtNameController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Name...',
@@ -123,7 +126,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -153,19 +156,14 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Field is required';
-                            }
-
-                            return null;
-                          },
+                          validator: _model.txtNameControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtEmailController,
+                          controller: _model.txtEmailController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Email...',
@@ -182,7 +180,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -212,23 +210,14 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Field is required';
-                            }
-
-                            if (!RegExp(kTextValidatorEmailRegex)
-                                .hasMatch(val)) {
-                              return 'Has to be a valid email address.';
-                            }
-                            return null;
-                          },
+                          validator: _model.txtEmailControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtPhoneController,
+                          controller: _model.txtPhoneController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Phone...',
@@ -245,7 +234,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -276,12 +265,14 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
                           keyboardType: TextInputType.phone,
+                          validator: _model.txtPhoneControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtSubjectController,
+                          controller: _model.txtSubjectController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Subject...',
@@ -298,7 +289,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -328,17 +319,12 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Field is required';
-                            }
-
-                            return null;
-                          },
+                          validator: _model.txtSubjectControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       TextFormField(
-                        controller: txtMessageController,
+                        controller: _model.txtMessageController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Enter your message here...',
@@ -353,8 +339,7 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -380,13 +365,8 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                         textAlign: TextAlign.start,
                         maxLines: 4,
                         keyboardType: TextInputType.multiline,
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Field is required';
-                          }
-
-                          return null;
-                        },
+                        validator: _model.txtMessageControllerValidator
+                            .asValidator(context),
                       ),
                     ],
                   ),
@@ -401,17 +381,16 @@ class _ContactModalWidgetState extends State<ContactModalWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (formKey.currentState == null ||
-                            !formKey.currentState!.validate()) {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
                           return;
                         }
-
                         await ContactMakeCall.call(
-                          name: txtNameController!.text,
-                          email: txtEmailController!.text,
-                          phone: txtPhoneController!.text,
-                          subject: txtSubjectController!.text,
-                          message: txtMessageController!.text,
+                          name: _model.txtNameController.text,
+                          email: _model.txtEmailController.text,
+                          phone: _model.txtPhoneController.text,
+                          subject: _model.txtSubjectController.text,
+                          message: _model.txtMessageController.text,
                         );
                         Navigator.pop(context);
                         ScaffoldMessenger.of(context).showSnackBar(

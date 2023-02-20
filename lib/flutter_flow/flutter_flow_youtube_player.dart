@@ -61,7 +61,8 @@ class _FlutterFlowYoutubePlayerState extends State<FlutterFlowYoutubePlayer> {
   String? _videoId;
   _YoutubeFullScreenWrapperState? _youtubeWrapper;
 
-  bool get handleFullScreen => !kIsWeb && widget.showFullScreen;
+  bool get handleFullScreen =>
+      !kIsWeb && widget.showFullScreen && _youtubeWrapper != null;
 
   @override
   void initState() {
@@ -152,8 +153,8 @@ class YoutubeFullScreenWrapper extends StatefulWidget {
 
   final Widget child;
 
-  static _YoutubeFullScreenWrapperState of(BuildContext context) =>
-      context.findAncestorStateOfType<_YoutubeFullScreenWrapperState>()!;
+  static _YoutubeFullScreenWrapperState? of(BuildContext context) =>
+      context.findAncestorStateOfType<_YoutubeFullScreenWrapperState>();
 
   @override
   State<YoutubeFullScreenWrapper> createState() =>

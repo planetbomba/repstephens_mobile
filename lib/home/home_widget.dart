@@ -9,7 +9,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'home_model.dart';
+export 'home_model.dart';
 
 class HomeWidget extends StatefulWidget {
   const HomeWidget({Key? key}) : super(key: key);
@@ -19,11 +22,21 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
-  final _unfocusNode = FocusNode();
+  late HomeModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => HomeModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -68,7 +81,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                     height: 400,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xA01E2429), Color(0x001E2429)],
+                        colors: [
+                          FlutterFlowTheme.of(context).darkBGstatic,
+                          Color(0x001E2429)
+                        ],
                         stops: [0, 1],
                         begin: AlignmentDirectional(0, 1),
                         end: AlignmentDirectional(0, -1),
@@ -82,7 +98,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
                           child: Image.asset(
-                            'assets/images/logo.png',
+                            'assets/images/STEPHENSLogo.png',
                             width: MediaQuery.of(context).size.width * 0.8,
                             fit: BoxFit.fitWidth,
                           ),

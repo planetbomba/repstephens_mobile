@@ -5,6 +5,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'video_model.dart';
+export 'video_model.dart';
 
 class VideoWidget extends StatefulWidget {
   const VideoWidget({Key? key}) : super(key: key);
@@ -14,11 +17,21 @@ class VideoWidget extends StatefulWidget {
 }
 
 class _VideoWidgetState extends State<VideoWidget> {
-  final _unfocusNode = FocusNode();
+  late VideoModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => VideoModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -32,8 +45,8 @@ class _VideoWidgetState extends State<VideoWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
         title: Image.asset(
-          'assets/images/logoHorizontal.png',
-          height: 40,
+          'assets/images/STEPHENSLogo2.png',
+          height: 35,
           fit: BoxFit.cover,
         ),
         actions: [],

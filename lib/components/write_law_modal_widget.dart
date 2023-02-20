@@ -5,6 +5,9 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:provider/provider.dart';
+import 'write_law_modal_model.dart';
+export 'write_law_modal_model.dart';
 
 class WriteLawModalWidget extends StatefulWidget {
   const WriteLawModalWidget({Key? key}) : super(key: key);
@@ -14,32 +17,30 @@ class WriteLawModalWidget extends StatefulWidget {
 }
 
 class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
-  ApiCallResponse? apiResultau8;
-  TextEditingController? txtAboutController;
-  TextEditingController? txtEmailController;
-  TextEditingController? txtNameController;
-  TextEditingController? txtPhoneController;
-  final txtPhoneMask = MaskTextInputFormatter(mask: '(###) ###-##-##');
-  TextEditingController? txtLawController;
-  final formKey = GlobalKey<FormState>();
+  late WriteLawModalModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
 
   @override
   void initState() {
     super.initState();
-    txtAboutController = TextEditingController();
-    txtEmailController = TextEditingController();
-    txtNameController = TextEditingController();
-    txtPhoneController = TextEditingController();
-    txtLawController = TextEditingController();
+    _model = createModel(context, () => WriteLawModalModel());
+
+    _model.txtNameController ??= TextEditingController();
+    _model.txtEmailController ??= TextEditingController();
+    _model.txtPhoneController ??= TextEditingController();
+    _model.txtAboutController ??= TextEditingController();
+    _model.txtLawController ??= TextEditingController();
   }
 
   @override
   void dispose() {
-    txtAboutController?.dispose();
-    txtEmailController?.dispose();
-    txtNameController?.dispose();
-    txtPhoneController?.dispose();
-    txtLawController?.dispose();
+    _model.maybeDispose();
+
     super.dispose();
   }
 
@@ -99,7 +100,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                 ),
               ),
               Form(
-                key: formKey,
+                key: _model.formKey,
                 autovalidateMode: AutovalidateMode.disabled,
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
@@ -109,7 +110,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtNameController,
+                          controller: _model.txtNameController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Name',
@@ -126,7 +127,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -156,19 +157,14 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Field is required';
-                            }
-
-                            return null;
-                          },
+                          validator: _model.txtNameControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtEmailController,
+                          controller: _model.txtEmailController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Email...',
@@ -185,7 +181,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -215,23 +211,14 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Field is required';
-                            }
-
-                            if (!RegExp(kTextValidatorEmailRegex)
-                                .hasMatch(val)) {
-                              return 'Has to be a valid email address.';
-                            }
-                            return null;
-                          },
+                          validator: _model.txtEmailControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtPhoneController,
+                          controller: _model.txtPhoneController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Phone...',
@@ -248,7 +235,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -278,13 +265,15 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          inputFormatters: [txtPhoneMask],
+                          validator: _model.txtPhoneControllerValidator
+                              .asValidator(context),
+                          inputFormatters: [_model.txtPhoneMask],
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
                         child: TextFormField(
-                          controller: txtAboutController,
+                          controller: _model.txtAboutController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your law is about...',
@@ -301,7 +290,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: FlutterFlowTheme.of(context).lineColor,
+                                color: Color(0x00000000),
                                 width: 1,
                               ),
                               borderRadius: const BorderRadius.only(
@@ -331,17 +320,12 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyText1,
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Field is required';
-                            }
-
-                            return null;
-                          },
+                          validator: _model.txtAboutControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                       TextFormField(
-                        controller: txtLawController,
+                        controller: _model.txtLawController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Enter your idea for a law here...',
@@ -356,8 +340,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                              color: Color(0x00000000),
                               width: 2,
                             ),
                             borderRadius: BorderRadius.circular(8),
@@ -383,13 +366,8 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                         textAlign: TextAlign.start,
                         maxLines: 4,
                         keyboardType: TextInputType.multiline,
-                        validator: (val) {
-                          if (val == null || val.isEmpty) {
-                            return 'Field is required';
-                          }
-
-                          return null;
-                        },
+                        validator: _model.txtLawControllerValidator
+                            .asValidator(context),
                       ),
                     ],
                   ),
@@ -404,17 +382,16 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        if (formKey.currentState == null ||
-                            !formKey.currentState!.validate()) {
+                        if (_model.formKey.currentState == null ||
+                            !_model.formKey.currentState!.validate()) {
                           return;
                         }
-
-                        apiResultau8 = await LawMakeCall.call(
-                          name: txtNameController!.text,
-                          email: txtEmailController!.text,
-                          phone: txtPhoneController!.text,
-                          about: txtAboutController!.text,
-                          law: txtLawController!.text,
+                        _model.apiResultau8 = await LawMakeCall.call(
+                          name: _model.txtNameController.text,
+                          email: _model.txtEmailController.text,
+                          phone: _model.txtPhoneController.text,
+                          about: _model.txtAboutController.text,
+                          law: _model.txtLawController.text,
                         );
                         Navigator.pop(context);
                         ScaffoldMessenger.of(context).showSnackBar(

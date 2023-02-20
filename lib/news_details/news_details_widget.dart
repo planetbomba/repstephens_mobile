@@ -8,7 +8,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'news_details_model.dart';
+export 'news_details_model.dart';
 
 class NewsDetailsWidget extends StatefulWidget {
   const NewsDetailsWidget({
@@ -23,11 +26,21 @@ class NewsDetailsWidget extends StatefulWidget {
 }
 
 class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
-  final _unfocusNode = FocusNode();
+  late NewsDetailsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => NewsDetailsModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -71,8 +84,8 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
               },
             ),
             title: Image.asset(
-              'assets/images/logoHorizontal.png',
-              height: 40,
+              'assets/images/STEPHENSLogo2.png',
+              height: 35,
               fit: BoxFit.cover,
             ),
             actions: [],

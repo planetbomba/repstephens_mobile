@@ -7,7 +7,10 @@ import '../flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+import 'single_video_model.dart';
+export 'single_video_model.dart';
 
 class SingleVideoWidget extends StatefulWidget {
   const SingleVideoWidget({
@@ -22,7 +25,22 @@ class SingleVideoWidget extends StatefulWidget {
 }
 
 class _SingleVideoWidgetState extends State<SingleVideoWidget> {
+  late SingleVideoModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => SingleVideoModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +82,8 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                 },
               ),
               title: Image.asset(
-                'assets/images/logoHorizontal.png',
-                height: 40,
+                'assets/images/STEPHENSLogo2.png',
+                height: 35,
                 fit: BoxFit.cover,
               ),
               actions: [],

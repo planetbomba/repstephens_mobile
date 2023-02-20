@@ -5,6 +5,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'events_model.dart';
+export 'events_model.dart';
 
 class EventsWidget extends StatefulWidget {
   const EventsWidget({Key? key}) : super(key: key);
@@ -14,11 +17,21 @@ class EventsWidget extends StatefulWidget {
 }
 
 class _EventsWidgetState extends State<EventsWidget> {
-  final _unfocusNode = FocusNode();
+  late EventsModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => EventsModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -32,8 +45,8 @@ class _EventsWidgetState extends State<EventsWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
         title: Image.asset(
-          'assets/images/logoHorizontal.png',
-          height: 40,
+          'assets/images/STEPHENSLogo2.png',
+          height: 35,
           fit: BoxFit.cover,
         ),
         actions: [],

@@ -5,7 +5,10 @@ import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'resources_model.dart';
+export 'resources_model.dart';
 
 class ResourcesWidget extends StatefulWidget {
   const ResourcesWidget({Key? key}) : super(key: key);
@@ -15,11 +18,21 @@ class ResourcesWidget extends StatefulWidget {
 }
 
 class _ResourcesWidgetState extends State<ResourcesWidget> {
-  final _unfocusNode = FocusNode();
+  late ResourcesModel _model;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _unfocusNode = FocusNode();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ResourcesModel());
+  }
 
   @override
   void dispose() {
+    _model.dispose();
+
     _unfocusNode.dispose();
     super.dispose();
   }
@@ -47,8 +60,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
           },
         ),
         title: Image.asset(
-          'assets/images/logoHorizontal.png',
-          height: 40,
+          'assets/images/STEPHENSLogo2.png',
+          height: 35,
           fit: BoxFit.cover,
         ),
         actions: [],
