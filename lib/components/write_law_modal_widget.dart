@@ -1,7 +1,7 @@
-import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/backend/api_requests/api_calls.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -48,13 +48,13 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      elevation: 5,
+      elevation: 5.0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0),
-          bottomRight: Radius.circular(0),
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
+          bottomLeft: Radius.circular(0.0),
+          bottomRight: Radius.circular(0.0),
+          topLeft: Radius.circular(16.0),
+          topRight: Radius.circular(16.0),
         ),
       ),
       child: Container(
@@ -63,10 +63,10 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(0),
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
+            bottomLeft: Radius.circular(0.0),
+            bottomRight: Radius.circular(0.0),
+            topLeft: Radius.circular(16.0),
+            topRight: Radius.circular(16.0),
           ),
         ),
         child: SingleChildScrollView(
@@ -80,45 +80,47 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: Container(
-                      width: 50,
-                      height: 4,
+                      width: 50.0,
+                      height: 4.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).lineColor,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 12, 0, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
                 child: Text(
                   'If I could write a law...',
-                  style: FlutterFlowTheme.of(context).title2,
+                  style: FlutterFlowTheme.of(context).headlineMedium,
                 ),
               ),
               Form(
                 key: _model.formKey,
                 autovalidateMode: AutovalidateMode.disabled,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                         child: TextFormField(
                           controller: _model.txtNameController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Name',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).lineColor,
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -128,7 +130,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -138,7 +140,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -148,7 +150,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -156,23 +158,24 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.txtNameControllerValidator
                               .asValidator(context),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                         child: TextFormField(
                           controller: _model.txtEmailController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Email...',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).lineColor,
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -182,7 +185,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -192,7 +195,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -202,7 +205,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -210,23 +213,24 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.txtEmailControllerValidator
                               .asValidator(context),
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                         child: TextFormField(
                           controller: _model.txtPhoneController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your Phone...',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).lineColor,
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -236,7 +240,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -246,7 +250,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -256,7 +260,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -264,24 +268,25 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.txtPhoneControllerValidator
                               .asValidator(context),
                           inputFormatters: [_model.txtPhoneMask],
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 15),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                         child: TextFormField(
                           controller: _model.txtAboutController,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Your law is about...',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).lineColor,
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -291,7 +296,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -301,7 +306,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -311,7 +316,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0x00000000),
-                                width: 1,
+                                width: 1.0,
                               ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(4.0),
@@ -319,7 +324,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.txtAboutControllerValidator
                               .asValidator(context),
                         ),
@@ -329,40 +334,40 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Enter your idea for a law here...',
-                          hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                          hintStyle: FlutterFlowTheme.of(context).bodySmall,
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              width: 2,
+                              width: 2.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 2,
+                              width: 2.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 2,
+                              width: 2.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0x00000000),
-                              width: 2,
+                              width: 2.0,
                             ),
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                          contentPadding:
-                              EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              20.0, 32.0, 20.0, 12.0),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyText1,
+                        style: FlutterFlowTheme.of(context).bodyMedium,
                         textAlign: TextAlign.start,
                         maxLines: 4,
                         keyboardType: TextInputType.multiline,
@@ -379,7 +384,8 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 44),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 44.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (_model.formKey.currentState == null ||
@@ -402,7 +408,7 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                                 'Roboto',
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 20,
+                                fontSize: 20.0,
                               ),
                             ),
                             duration: Duration(milliseconds: 3000),
@@ -414,18 +420,22 @@ class _WriteLawModalWidgetState extends State<WriteLawModalWidget> {
                       },
                       text: 'SEND MESSAGE',
                       options: FFButtonOptions(
-                        width: 270,
-                        height: 50,
-                        color: FlutterFlowTheme.of(context).primaryColor,
+                        width: 270.0,
+                        height: 50.0,
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle1.override(
+                            FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Poppins',
                                   color: Colors.white,
                                 ),
-                        elevation: 3,
+                        elevation: 3.0,
                         borderSide: BorderSide(
                           color: Colors.transparent,
-                          width: 1,
+                          width: 1.0,
                         ),
                       ),
                     ),

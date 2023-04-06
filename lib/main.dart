@@ -120,7 +120,7 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPageName = tabs.keys.toList()[i];
         }),
         backgroundColor: Color(0xFFFFD44E),
-        selectedItemColor: FlutterFlowTheme.of(context).primaryColor,
+        selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: Color(0xA01E2429),
         showSelectedLabels: true,
         showUnselectedLabels: true,
@@ -129,7 +129,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.home,
-              size: 24,
+              size: 24.0,
             ),
             label: 'HOME',
             tooltip: '',
@@ -137,7 +137,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.newspaper,
-              size: 24,
+              size: 24.0,
             ),
             label: 'NEWS',
             tooltip: '',
@@ -145,7 +145,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.calendarAlt,
-              size: 24,
+              size: 24.0,
             ),
             label: 'EVENTS',
             tooltip: '',
@@ -153,7 +153,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.video,
-              size: 24,
+              size: 24.0,
             ),
             label: 'VIDEO',
             tooltip: '',
@@ -161,7 +161,7 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.tools,
-              size: 24,
+              size: 24.0,
             ),
             label: 'TOOLBOX',
             tooltip: '',

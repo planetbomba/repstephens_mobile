@@ -1,6 +1,6 @@
-import '../flutter_flow/flutter_flow_animations.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -44,16 +44,16 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         automaticallyImplyLeading: false,
         title: Image.asset(
           'assets/images/STEPHENSLogo2.png',
-          height: 35,
+          height: 35.0,
           fit: BoxFit.cover,
         ),
         actions: [],
         centerTitle: true,
-        elevation: 2,
+        elevation: 2.0,
       ),
       body: SafeArea(
         child: GestureDetector(
@@ -63,7 +63,7 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
             scrollDirection: Axis.vertical,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
                 child: InkWell(
                   onTap: () async {
                     await launchURL(
@@ -75,16 +75,16 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                       color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 4,
+                          blurRadius: 4.0,
                           color: Color(0x2B202529),
-                          offset: Offset(0, 2),
+                          offset: Offset(0.0, 2.0),
                         )
                       ],
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0),
-                        bottomRight: Radius.circular(12),
-                        topLeft: Radius.circular(12),
-                        topRight: Radius.circular(0),
+                        bottomLeft: Radius.circular(0.0),
+                        bottomRight: Radius.circular(12.0),
+                        topLeft: Radius.circular(12.0),
+                        topRight: Radius.circular(0.0),
                       ),
                     ),
                     child: Column(
@@ -92,10 +92,10 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(0),
-                            bottomRight: Radius.circular(12),
-                            topLeft: Radius.circular(12),
-                            topRight: Radius.circular(0),
+                            bottomLeft: Radius.circular(0.0),
+                            bottomRight: Radius.circular(12.0),
+                            topLeft: Radius.circular(12.0),
+                            topRight: Radius.circular(0.0),
                           ),
                           child: Image.asset(
                             'assets/images/leg.jpg',
@@ -109,7 +109,7 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
                 child: InkWell(
                   onTap: () async {
                     await launchURL(
@@ -117,10 +117,10 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(12),
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(0.0),
+                      bottomRight: Radius.circular(12.0),
+                      topLeft: Radius.circular(12.0),
+                      topRight: Radius.circular(0.0),
                     ),
                     child: Container(
                       width: double.infinity,
@@ -128,20 +128,20 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 4,
+                            blurRadius: 4.0,
                             color: Color(0x2B202529),
-                            offset: Offset(0, 2),
+                            offset: Offset(0.0, 2.0),
                           )
                         ],
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(12),
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0.0),
+                          bottomRight: Radius.circular(12.0),
+                          topLeft: Radius.circular(12.0),
+                          topRight: Radius.circular(0.0),
                         ),
                       ),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(0),
+                        borderRadius: BorderRadius.circular(0.0),
                         child: Image.asset(
                           'assets/images/com.jpg',
                           width: double.infinity,
@@ -153,17 +153,17 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
                 child: InkWell(
                   onTap: () async {
                     context.pushNamed('AboutBrad');
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(12),
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(0.0),
+                      bottomRight: Radius.circular(12.0),
+                      topLeft: Radius.circular(12.0),
+                      topRight: Radius.circular(0.0),
                     ),
                     child: Container(
                       width: double.infinity,
@@ -171,16 +171,16 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 4,
+                            blurRadius: 4.0,
                             color: Color(0x2B202529),
-                            offset: Offset(0, 2),
+                            offset: Offset(0.0, 2.0),
                           )
                         ],
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(12),
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0.0),
+                          bottomRight: Radius.circular(12.0),
+                          topLeft: Radius.circular(12.0),
+                          topRight: Radius.circular(0.0),
                         ),
                       ),
                       child: Image.asset(
@@ -193,17 +193,17 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16, 8, 16, 12),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
                 child: InkWell(
                   onTap: () async {
                     context.pushNamed('Resources');
                   },
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0),
-                      bottomRight: Radius.circular(12),
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(0),
+                      bottomLeft: Radius.circular(0.0),
+                      bottomRight: Radius.circular(12.0),
+                      topLeft: Radius.circular(12.0),
+                      topRight: Radius.circular(0.0),
                     ),
                     child: Container(
                       width: double.infinity,
@@ -211,16 +211,16 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 4,
+                            blurRadius: 4.0,
                             color: Color(0x2B202529),
-                            offset: Offset(0, 2),
+                            offset: Offset(0.0, 2.0),
                           )
                         ],
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0),
-                          bottomRight: Radius.circular(12),
-                          topLeft: Radius.circular(12),
-                          topRight: Radius.circular(0),
+                          bottomLeft: Radius.circular(0.0),
+                          bottomRight: Radius.circular(12.0),
+                          topLeft: Radius.circular(12.0),
+                          topRight: Radius.circular(0.0),
                         ),
                       ),
                       child: Image.asset(

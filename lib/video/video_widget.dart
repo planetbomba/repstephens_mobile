@@ -1,6 +1,6 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -42,22 +42,22 @@ class _VideoWidgetState extends State<VideoWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         automaticallyImplyLeading: false,
         title: Image.asset(
           'assets/images/STEPHENSLogo2.png',
-          height: 35,
+          height: 35.0,
           fit: BoxFit.cover,
         ),
         actions: [],
         centerTitle: true,
-        elevation: 2,
+        elevation: 2.0,
       ),
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+            padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
             child: StreamBuilder<List<VideosRecord>>(
               stream: queryVideosRecord(
                 queryBuilder: (videosRecord) =>
@@ -68,8 +68,8 @@ class _VideoWidgetState extends State<VideoWidget> {
                 if (!snapshot.hasData) {
                   return Center(
                     child: SizedBox(
-                      width: 50,
-                      height: 50,
+                      width: 50.0,
+                      height: 50.0,
                       child: CircularProgressIndicator(
                         color: FlutterFlowTheme.of(context).alternate,
                       ),
@@ -85,7 +85,8 @@ class _VideoWidgetState extends State<VideoWidget> {
                     final listViewVideosRecord =
                         listViewVideosRecordList[listViewIndex];
                     return Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: InkWell(
                         onTap: () async {
                           context.pushNamed(
@@ -106,29 +107,29 @@ class _VideoWidgetState extends State<VideoWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Container(
-                                width: 125,
-                                height: 100,
+                                width: 125.0,
+                                height: 100.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
                                 child: CachedNetworkImage(
                                   imageUrl: listViewVideosRecord.thumbnail!,
-                                  width: 125,
-                                  height: 100,
+                                  width: 125.0,
+                                  height: 100.0,
                                   fit: BoxFit.cover,
                                 ),
                               ),
                               Expanded(
                                 child: Container(
-                                  width: 100,
+                                  width: 100.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                   ),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        10, 10, 10, 10),
+                                        10.0, 10.0, 10.0, 10.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -137,13 +138,13 @@ class _VideoWidgetState extends State<VideoWidget> {
                                         Text(
                                           listViewVideosRecord.title!,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
+                                                        .primary,
+                                                fontSize: 16.0,
                                                 lineHeight: 1.1,
                                               ),
                                         ),
@@ -153,12 +154,12 @@ class _VideoWidgetState extends State<VideoWidget> {
                                               listViewVideosRecord
                                                   .publishedDate!),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryColor,
+                                                        .secondary,
                                                 fontStyle: FontStyle.italic,
                                               ),
                                         ),

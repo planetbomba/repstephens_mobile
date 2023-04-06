@@ -1,8 +1,8 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -54,8 +54,8 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).alternate,
               ),
@@ -67,17 +67,17 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+            backgroundColor: FlutterFlowTheme.of(context).primary,
             automaticallyImplyLeading: false,
             leading: FlutterFlowIconButton(
               borderColor: Colors.transparent,
-              borderRadius: 30,
-              borderWidth: 1,
-              buttonSize: 60,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
               icon: Icon(
                 Icons.arrow_back_rounded,
                 color: FlutterFlowTheme.of(context).gray200,
-                size: 30,
+                size: 30.0,
               ),
               onPressed: () async {
                 context.pop();
@@ -85,12 +85,12 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
             ),
             title: Image.asset(
               'assets/images/STEPHENSLogo2.png',
-              height: 35,
+              height: 35.0,
               fit: BoxFit.cover,
             ),
             actions: [],
             centerTitle: true,
-            elevation: 2,
+            elevation: 2.0,
           ),
           body: GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
@@ -102,14 +102,13 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                   Container(
                     width: double.infinity,
                     child: Stack(
-                      alignment: AlignmentDirectional(0, 0.8),
+                      alignment: AlignmentDirectional(0.0, 0.8),
                       children: [
                         ClipRRect(
-                          borderRadius: BorderRadius.circular(0),
+                          borderRadius: BorderRadius.circular(0.0),
                           child: CachedNetworkImage(
                             imageUrl: newsDetailsPostsRecord.image!,
                             width: double.infinity,
-                            height: 200,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -119,16 +118,16 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                             builder: (context) => Align(
                               alignment: AlignmentDirectional(0.9, 0.05),
                               child: FlutterFlowIconButton(
-                                borderRadius: 30,
-                                borderWidth: 1,
-                                buttonSize: 50,
+                                borderRadius: 30.0,
+                                borderWidth: 1.0,
+                                buttonSize: 50.0,
                                 fillColor:
                                     FlutterFlowTheme.of(context).alternate,
                                 icon: Icon(
                                   Icons.ios_share,
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBtnText,
-                                  size: 25,
+                                  size: 25.0,
                                 ),
                                 onPressed: () async {
                                   await Share.share(
@@ -144,40 +143,42 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 12),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 0.0, 0.0),
                           child: Text(
                             newsDetailsPostsRecord.title!,
                             style: FlutterFlowTheme.of(context)
-                                .bodyText1
+                                .bodyMedium
                                 .override(
                                   fontFamily: 'Poppins',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
-                                  fontSize: 18,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                   lineHeight: 1.1,
                                 ),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 20),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 20.0),
                           child: Text(
                             dateTimeFormat('relative',
                                 newsDetailsPostsRecord.publishDate!),
-                            style:
-                                FlutterFlowTheme.of(context).subtitle1.override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                      fontSize: 16,
-                                      fontStyle: FontStyle.italic,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  fontSize: 16.0,
+                                  fontStyle: FontStyle.italic,
+                                ),
                           ),
                         ),
                         Html(
@@ -185,10 +186,10 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                               '<style> html, body { Font-size:17pt; line-height:1.4; margin:0; padding:0; } </style>${newsDetailsPostsRecord.body}',
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0, 0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 40),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 20.0, 0.0, 40.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 await launchURL(
@@ -196,22 +197,26 @@ class _NewsDetailsWidgetState extends State<NewsDetailsWidget> {
                               },
                               text: 'READ MORE',
                               options: FFButtonOptions(
-                                width: 300,
-                                height: 50,
+                                width: 300.0,
+                                height: 50.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle1
+                                    .titleMedium
                                     .override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      fontSize: 15,
+                                      fontSize: 15.0,
                                     ),
-                                elevation: 3,
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
-                                  width: 1,
+                                  width: 1.0,
                                 ),
                               ),
                             ),

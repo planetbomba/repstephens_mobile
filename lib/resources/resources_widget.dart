@@ -1,7 +1,7 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,17 +43,17 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         automaticallyImplyLeading: false,
         leading: FlutterFlowIconButton(
           borderColor: Colors.transparent,
-          borderRadius: 30,
-          borderWidth: 1,
-          buttonSize: 60,
+          borderRadius: 30.0,
+          borderWidth: 1.0,
+          buttonSize: 60.0,
           icon: Icon(
             Icons.arrow_back_rounded,
             color: FlutterFlowTheme.of(context).gray200,
-            size: 30,
+            size: 30.0,
           ),
           onPressed: () async {
             context.pop();
@@ -61,30 +61,30 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
         ),
         title: Image.asset(
           'assets/images/STEPHENSLogo2.png',
-          height: 35,
+          height: 35.0,
           fit: BoxFit.cover,
         ),
         actions: [],
         centerTitle: true,
-        elevation: 2,
+        elevation: 2.0,
       ),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'COOK COUNTY',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -99,8 +99,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
@@ -119,14 +119,15 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         final cookResourcesRecord =
                             cookResourcesRecordList[cookIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10, 10, 10, 10),
+                                  10.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -140,13 +141,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                           cookResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
+                                                        .primary,
+                                                fontSize: 16.0,
                                                 lineHeight: 1.1,
                                               ),
                                         ),
@@ -161,13 +162,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Text(
                                         cookResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              fontSize: 15,
+                                                      .secondary,
+                                              fontSize: 15.0,
                                             ),
                                       ),
                                       Row(
@@ -178,18 +179,18 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                               cookResourcesRecord.website != '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
-                                                borderRadius: 30,
-                                                borderWidth: 1,
-                                                buttonSize: 40,
+                                                borderRadius: 30.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -200,13 +201,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ),
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 30,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
                                             icon: Icon(
                                               Icons.phone_forwarded,
                                               color: Color(0xFF3B97F6),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -230,13 +231,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'STATE OF ILLINOIS',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -251,8 +252,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
@@ -271,14 +272,15 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         final stateResourcesRecord =
                             stateResourcesRecordList[stateIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10, 10, 10, 10),
+                                  10.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -292,13 +294,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                           stateResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
+                                                        .primary,
+                                                fontSize: 16.0,
                                                 lineHeight: 1.1,
                                               ),
                                         ),
@@ -313,13 +315,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Text(
                                         stateResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              fontSize: 15,
+                                                      .secondary,
+                                              fontSize: 15.0,
                                             ),
                                       ),
                                       Row(
@@ -331,18 +333,18 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
-                                                borderRadius: 30,
-                                                borderWidth: 1,
-                                                buttonSize: 40,
+                                                borderRadius: 30.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -353,13 +355,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ),
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 30,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
                                             icon: Icon(
                                               Icons.phone_forwarded,
                                               color: Color(0xFF3B97F6),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -383,13 +385,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'FEDERAL RESOURCES',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -404,8 +406,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
@@ -424,14 +426,15 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         final federalResourcesRecord =
                             federalResourcesRecordList[federalIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10, 10, 10, 10),
+                                  10.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -445,13 +448,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                           federalResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
+                                                        .primary,
+                                                fontSize: 16.0,
                                                 lineHeight: 1.1,
                                               ),
                                         ),
@@ -466,13 +469,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Text(
                                         federalResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              fontSize: 15,
+                                                      .secondary,
+                                              fontSize: 15.0,
                                             ),
                                       ),
                                       Row(
@@ -484,18 +487,18 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
-                                                borderRadius: 30,
-                                                borderWidth: 1,
-                                                buttonSize: 40,
+                                                borderRadius: 30.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -506,13 +509,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ),
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 30,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
                                             icon: Icon(
                                               Icons.phone_forwarded,
                                               color: Color(0xFF3B97F6),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -536,13 +539,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'SOCIAL SERVICES',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -557,8 +560,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
@@ -577,14 +580,15 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         final socialResourcesRecord =
                             socialResourcesRecordList[socialIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10, 10, 10, 10),
+                                  10.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -598,13 +602,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                           socialResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
+                                                        .primary,
+                                                fontSize: 16.0,
                                                 lineHeight: 1.1,
                                               ),
                                         ),
@@ -619,13 +623,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Text(
                                         socialResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              fontSize: 15,
+                                                      .secondary,
+                                              fontSize: 15.0,
                                             ),
                                       ),
                                       Row(
@@ -637,18 +641,18 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
-                                                borderRadius: 30,
-                                                borderWidth: 1,
-                                                buttonSize: 40,
+                                                borderRadius: 30.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -659,13 +663,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ),
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 30,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
                                             icon: Icon(
                                               Icons.phone_forwarded,
                                               color: Color(0xFF3B97F6),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -689,13 +693,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'SCHOOLS',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -710,8 +714,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
@@ -730,14 +734,15 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         final schoolsResourcesRecord =
                             schoolsResourcesRecordList[schoolsIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10, 10, 10, 10),
+                                  10.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -751,13 +756,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                           schoolsResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
+                                                        .primary,
+                                                fontSize: 16.0,
                                                 lineHeight: 1.1,
                                               ),
                                         ),
@@ -772,13 +777,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Text(
                                         schoolsResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              fontSize: 15,
+                                                      .secondary,
+                                              fontSize: 15.0,
                                             ),
                                       ),
                                       Row(
@@ -790,18 +795,18 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
-                                                borderRadius: 30,
-                                                borderWidth: 1,
-                                                buttonSize: 40,
+                                                borderRadius: 30.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -812,13 +817,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ),
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 30,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
                                             icon: Icon(
                                               Icons.phone_forwarded,
                                               color: Color(0xFF3B97F6),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -842,13 +847,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'HOSPITALS',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -863,8 +868,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                     if (!snapshot.hasData) {
                       return Center(
                         child: SizedBox(
-                          width: 50,
-                          height: 50,
+                          width: 50.0,
+                          height: 50.0,
                           child: CircularProgressIndicator(
                             color: FlutterFlowTheme.of(context).alternate,
                           ),
@@ -883,14 +888,15 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                         final hospitalsResourcesRecord =
                             hospitalsResourcesRecordList[hospitalsIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  10, 10, 10, 10),
+                                  10.0, 10.0, 10.0, 10.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -904,13 +910,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                           hospitalsResourcesRecord.name!,
                                           textAlign: TextAlign.start,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryColor,
-                                                fontSize: 16,
+                                                        .primary,
+                                                fontSize: 16.0,
                                                 lineHeight: 1.1,
                                               ),
                                         ),
@@ -925,13 +931,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                       Text(
                                         hospitalsResourcesRecord.phone!,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyText1
+                                            .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryColor,
-                                              fontSize: 15,
+                                                      .secondary,
+                                              fontSize: 15.0,
                                             ),
                                       ),
                                       Row(
@@ -945,18 +951,18 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                   '')
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 0, 5, 0),
+                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
-                                                borderRadius: 30,
-                                                borderWidth: 1,
-                                                buttonSize: 40,
+                                                borderRadius: 30.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 40.0,
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.globe,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .alternate,
-                                                  size: 20,
+                                                  size: 20.0,
                                                 ),
                                                 onPressed: () async {
                                                   await launchURL(
@@ -967,13 +973,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             ),
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
-                                            borderRadius: 30,
-                                            borderWidth: 1,
-                                            buttonSize: 40,
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 40.0,
                                             icon: Icon(
                                               Icons.phone_forwarded,
                                               color: Color(0xFF3B97F6),
-                                              size: 20,
+                                              size: 20.0,
                                             ),
                                             onPressed: () async {
                                               await launchUrl(Uri(
@@ -997,19 +1003,19 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                   },
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 0),
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'Utilities',
-                    style: FlutterFlowTheme.of(context).bodyText1.override(
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Poppins',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 20,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
                   child: StreamBuilder<List<ResourcesRecord>>(
                     stream: queryResourcesRecord(
                       queryBuilder: (resourcesRecord) => resourcesRecord
@@ -1020,8 +1026,8 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
-                            width: 50,
-                            height: 50,
+                            width: 50.0,
+                            height: 50.0,
                             child: CircularProgressIndicator(
                               color: FlutterFlowTheme.of(context).alternate,
                             ),
@@ -1040,14 +1046,15 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                           final utilitiesResourcesRecord =
                               utilitiesResourcesRecordList[utilitiesIndex];
                           return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 8.0),
                             child: Card(
                               clipBehavior: Clip.antiAliasWithSaveLayer,
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10, 10, 10, 10),
+                                    10.0, 10.0, 10.0, 10.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1061,13 +1068,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                             utilitiesResourcesRecord.name!,
                                             textAlign: TextAlign.start,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyText1
+                                                .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryColor,
-                                                  fontSize: 16,
+                                                      .primary,
+                                                  fontSize: 16.0,
                                                   lineHeight: 1.1,
                                                 ),
                                           ),
@@ -1082,13 +1089,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                         Text(
                                           utilitiesResourcesRecord.phone!,
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyText1
+                                              .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryColor,
-                                                fontSize: 15,
+                                                        .secondary,
+                                                fontSize: 15.0,
                                               ),
                                         ),
                                         Row(
@@ -1102,19 +1109,20 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                                     '')
                                               Padding(
                                                 padding: EdgeInsetsDirectional
-                                                    .fromSTEB(0, 0, 5, 0),
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 5.0, 0.0),
                                                 child: FlutterFlowIconButton(
                                                   borderColor:
                                                       Colors.transparent,
-                                                  borderRadius: 30,
-                                                  borderWidth: 1,
-                                                  buttonSize: 40,
+                                                  borderRadius: 30.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 40.0,
                                                   icon: FaIcon(
                                                     FontAwesomeIcons.globe,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .alternate,
-                                                    size: 20,
+                                                    size: 20.0,
                                                   ),
                                                   onPressed: () async {
                                                     await launchURL(
@@ -1125,13 +1133,13 @@ class _ResourcesWidgetState extends State<ResourcesWidget> {
                                               ),
                                             FlutterFlowIconButton(
                                               borderColor: Colors.transparent,
-                                              borderRadius: 30,
-                                              borderWidth: 1,
-                                              buttonSize: 40,
+                                              borderRadius: 30.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 40.0,
                                               icon: Icon(
                                                 Icons.phone_forwarded,
                                                 color: Color(0xFF3B97F6),
-                                                size: 20,
+                                                size: 20.0,
                                               ),
                                               onPressed: () async {
                                                 await launchUrl(Uri(

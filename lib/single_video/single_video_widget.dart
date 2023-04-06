@@ -1,9 +1,9 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_youtube_player.dart';
-import '../flutter_flow/custom_functions.dart' as functions;
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_youtube_player.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,8 +51,8 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
         if (!snapshot.hasData) {
           return Center(
             child: SizedBox(
-              width: 50,
-              height: 50,
+              width: 50.0,
+              height: 50.0,
               child: CircularProgressIndicator(
                 color: FlutterFlowTheme.of(context).alternate,
               ),
@@ -65,17 +65,17 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             appBar: AppBar(
-              backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+              backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               leading: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
-                borderRadius: 30,
-                borderWidth: 1,
-                buttonSize: 60,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
                 icon: Icon(
                   Icons.arrow_back_rounded,
                   color: FlutterFlowTheme.of(context).gray200,
-                  size: 30,
+                  size: 30.0,
                 ),
                 onPressed: () async {
                   context.pop();
@@ -83,12 +83,12 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
               ),
               title: Image.asset(
                 'assets/images/STEPHENSLogo2.png',
-                height: 35,
+                height: 35.0,
                 fit: BoxFit.cover,
               ),
               actions: [],
               centerTitle: true,
-              elevation: 2,
+              elevation: 2.0,
             ),
             body: SingleChildScrollView(
               child: Column(
@@ -108,7 +108,8 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,10 +117,12 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                         Expanded(
                           child: Text(
                             singleVideoVideosRecord.title!,
-                            style: FlutterFlowTheme.of(context).title2.override(
+                            style: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF003366),
-                                  fontSize: 20,
+                                  fontSize: 20.0,
                                   lineHeight: 1.2,
                                 ),
                           ),
@@ -127,13 +130,13 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                         Builder(
                           builder: (context) => FlutterFlowIconButton(
                             borderColor: Colors.transparent,
-                            borderRadius: 30,
-                            borderWidth: 1,
-                            buttonSize: 50,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 50.0,
                             icon: Icon(
                               Icons.ios_share,
                               color: FlutterFlowTheme.of(context).alternate,
-                              size: 25,
+                              size: 25.0,
                             ),
                             onPressed: () async {
                               await Share.share(
@@ -149,7 +152,8 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 4, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -157,37 +161,37 @@ class _SingleVideoWidgetState extends State<SingleVideoWidget> {
                           child: Text(
                             dateTimeFormat('relative',
                                 singleVideoVideosRecord.publishedDate!),
-                            style:
-                                FlutterFlowTheme.of(context).subtitle1.override(
-                                      fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryColor,
-                                      fontSize: 16,
-                                      fontStyle: FontStyle.italic,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  fontSize: 16.0,
+                                  fontStyle: FontStyle.italic,
+                                ),
                           ),
                         ),
                       ],
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 12, 20, 0),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 40),
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 40.0),
                             child: Text(
                               singleVideoVideosRecord.description!,
                               style: FlutterFlowTheme.of(context)
-                                  .bodyText2
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryColor,
-                                    fontSize: 16,
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 16.0,
                                     fontWeight: FontWeight.w500,
                                     lineHeight: 1.6,
                                   ),

@@ -1,6 +1,6 @@
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_timer.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -54,8 +54,8 @@ class _StartWidgetState extends State<StartWidget> {
           children: [
             Image.asset(
               'assets/images/BS_Splasher2.png',
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 1,
+              width: MediaQuery.of(context).size.width * 1.0,
+              height: MediaQuery.of(context).size.height * 1.0,
               fit: BoxFit.cover,
             ),
             FlutterFlowTimer(
@@ -81,9 +81,9 @@ class _StartWidgetState extends State<StartWidget> {
                 );
               },
               textAlign: TextAlign.start,
-              style: FlutterFlowTheme.of(context).bodyText1.override(
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Poppins',
-                    color: FlutterFlowTheme.of(context).primaryColor,
+                    color: FlutterFlowTheme.of(context).primary,
                   ),
             ),
           ],

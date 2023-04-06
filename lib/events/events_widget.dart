@@ -1,6 +1,6 @@
-import '../backend/backend.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -42,16 +42,16 @@ class _EventsWidgetState extends State<EventsWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         automaticallyImplyLeading: false,
         title: Image.asset(
           'assets/images/STEPHENSLogo2.png',
-          height: 35,
+          height: 35.0,
           fit: BoxFit.cover,
         ),
         actions: [],
         centerTitle: true,
-        elevation: 2,
+        elevation: 2.0,
       ),
       body: SafeArea(
         child: GestureDetector(
@@ -69,8 +69,8 @@ class _EventsWidgetState extends State<EventsWidget> {
               if (!snapshot.hasData) {
                 return Center(
                   child: SizedBox(
-                    width: 50,
-                    height: 50,
+                    width: 50.0,
+                    height: 50.0,
                     child: CircularProgressIndicator(
                       color: FlutterFlowTheme.of(context).alternate,
                     ),
@@ -92,7 +92,8 @@ class _EventsWidgetState extends State<EventsWidget> {
                   final listViewEventsRecord =
                       listViewEventsRecordList[listViewIndex];
                   return Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 12.0),
                     child: InkWell(
                       onTap: () async {
                         context.pushNamed(
@@ -109,7 +110,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                         clipBehavior: Clip.antiAliasWithSaveLayer,
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -119,10 +120,10 @@ class _EventsWidgetState extends State<EventsWidget> {
                                 listViewEventsRecord.eventImage != '')
                               ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0),
-                                  bottomRight: Radius.circular(0),
-                                  topLeft: Radius.circular(8),
-                                  topRight: Radius.circular(8),
+                                  bottomLeft: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(0.0),
+                                  topLeft: Radius.circular(8.0),
+                                  topRight: Radius.circular(8.0),
                                 ),
                                 child: CachedNetworkImage(
                                   imageUrl: listViewEventsRecord.eventImage!,
@@ -131,8 +132,8 @@ class _EventsWidgetState extends State<EventsWidget> {
                                 ),
                               ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 8.0, 8.0, 8.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -141,19 +142,19 @@ class _EventsWidgetState extends State<EventsWidget> {
                                   Text(
                                     listViewEventsRecord.title!,
                                     style: FlutterFlowTheme.of(context)
-                                        .bodyText1
+                                        .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryColor,
-                                          fontSize: 17,
+                                              .secondary,
+                                          fontSize: 17.0,
                                           fontWeight: FontWeight.bold,
                                           lineHeight: 1.2,
                                         ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 10, 0, 0),
+                                        0.0, 10.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -168,7 +169,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               'START DATE',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color:
@@ -181,7 +182,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               '${dateTimeFormat('MMMEd', listViewEventsRecord.startDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.startDate)}',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1,
+                                                      .bodyMedium,
                                             ),
                                           ],
                                         ),
@@ -194,7 +195,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               'END DATE',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1
+                                                      .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color:
@@ -207,7 +208,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                               '${dateTimeFormat('MMMEd', listViewEventsRecord.endDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.endDate)}',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyText1,
+                                                      .bodyMedium,
                                             ),
                                           ],
                                         ),
