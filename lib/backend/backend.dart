@@ -9,6 +9,7 @@ import 'schema/videos_record.dart';
 import 'schema/events_record.dart';
 import 'schema/resources_record.dart';
 import 'schema/pages_record.dart';
+import 'schema/alerts_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -22,6 +23,7 @@ export 'schema/videos_record.dart';
 export 'schema/events_record.dart';
 export 'schema/resources_record.dart';
 export 'schema/pages_record.dart';
+export 'schema/alerts_record.dart';
 
 /// Functions to query SettingsRecords (as a Stream and as a Future).
 Future<int> querySettingsRecordCount({
@@ -329,6 +331,58 @@ Future<FFFirestorePage<PagesRecord>> queryPagesRecordPage({
     queryCollectionPage(
       PagesRecord.collection,
       PagesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query AlertsRecords (as a Stream and as a Future).
+Future<int> queryAlertsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      AlertsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<AlertsRecord>> queryAlertsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      AlertsRecord.collection,
+      AlertsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<AlertsRecord>> queryAlertsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      AlertsRecord.collection,
+      AlertsRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<AlertsRecord>> queryAlertsRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      AlertsRecord.collection,
+      AlertsRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

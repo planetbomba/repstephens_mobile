@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:badges/badges.dart' as badges;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -132,6 +133,51 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 ),
                               ),
                             ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 25.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: badges.Badge(
+                            badgeContent: Text(
+                              '1',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                  ),
+                            ),
+                            showBadge: true,
+                            shape: badges.BadgeShape.circle,
+                            badgeColor:
+                                FlutterFlowTheme.of(context).customColor3,
+                            elevation: 4.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 10.0, 10.0, 10.0),
+                            position: badges.BadgePosition.topEnd(),
+                            animationType: badges.BadgeAnimationType.scale,
+                            toAnimate: true,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 10.0, 0.0),
+                              child: Icon(
+                                Icons.notifications,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                size: 30.0,
+                              ),
+                            ),
                           ),
                         ),
                       ],
