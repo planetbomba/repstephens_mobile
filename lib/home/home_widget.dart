@@ -194,7 +194,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     alignment: AlignmentDirectional(0.0, 0.0),
                                     child: badges.Badge(
                                       badgeContent: Text(
-                                        homeAlertsRecordList.length.toString(),
+                                        homeAlertsRecordList
+                                            .where((e) => e.published == true)
+                                            .toList()
+                                            .length
+                                            .toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
