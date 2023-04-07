@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/alert_list_widget.dart';
 import '/components/contact_modal_widget.dart';
 import '/components/write_law_modal_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -193,11 +194,34 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 10.0, 0.0),
-                                    child: Icon(
-                                      Icons.notifications,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                      size: 30.0,
+                                    child: InkWell(
+                                      onTap: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (bottomSheetContext) {
+                                            return GestureDetector(
+                                              onTap: () => FocusScope.of(
+                                                      context)
+                                                  .requestFocus(_unfocusNode),
+                                              child: Padding(
+                                                padding: MediaQuery.of(
+                                                        bottomSheetContext)
+                                                    .viewInsets,
+                                                child: AlertListWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      },
+                                      child: Icon(
+                                        Icons.notifications,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                        size: 30.0,
+                                      ),
                                     ),
                                   ),
                                 ),
