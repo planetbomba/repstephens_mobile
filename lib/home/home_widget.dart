@@ -140,7 +140,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 25.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 25.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
