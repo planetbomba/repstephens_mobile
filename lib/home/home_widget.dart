@@ -43,12 +43,12 @@ class _HomeWidgetState extends State<HomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-        child: SingleChildScrollView(
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -301,12 +301,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                             barrierColor: Color(0xCD262D34),
                             enableDrag: false,
                             context: context,
-                            builder: (context) {
-                              return Padding(
-                                padding: MediaQuery.of(context).viewInsets,
-                                child: Container(
-                                  height: 600.0,
-                                  child: WriteLawModalWidget(),
+                            builder: (bottomSheetContext) {
+                              return GestureDetector(
+                                onTap: () => FocusScope.of(context)
+                                    .requestFocus(_unfocusNode),
+                                child: Padding(
+                                  padding: MediaQuery.of(bottomSheetContext)
+                                      .viewInsets,
+                                  child: Container(
+                                    height: 600.0,
+                                    child: WriteLawModalWidget(),
+                                  ),
                                 ),
                               );
                             },
@@ -528,13 +533,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   barrierColor: Color(0x00000000),
                                   enableDrag: false,
                                   context: context,
-                                  builder: (context) {
-                                    return Padding(
-                                      padding:
-                                          MediaQuery.of(context).viewInsets,
-                                      child: Container(
-                                        height: 600.0,
-                                        child: ContactModalWidget(),
+                                  builder: (bottomSheetContext) {
+                                    return GestureDetector(
+                                      onTap: () => FocusScope.of(context)
+                                          .requestFocus(_unfocusNode),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.of(bottomSheetContext)
+                                                .viewInsets,
+                                        child: Container(
+                                          height: 600.0,
+                                          child: ContactModalWidget(),
+                                        ),
                                       ),
                                     );
                                   },
@@ -571,7 +581,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             options: FFButtonOptions(
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                                  10.0, 0.0, 10.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).secondary,
@@ -598,12 +608,17 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 barrierColor: Color(0xCB0D1E23),
                                 enableDrag: false,
                                 context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.of(context).viewInsets,
-                                    child: Container(
-                                      height: 600.0,
-                                      child: ContactModalWidget(),
+                                builder: (bottomSheetContext) {
+                                  return GestureDetector(
+                                    onTap: () => FocusScope.of(context)
+                                        .requestFocus(_unfocusNode),
+                                    child: Padding(
+                                      padding: MediaQuery.of(bottomSheetContext)
+                                          .viewInsets,
+                                      child: Container(
+                                        height: 600.0,
+                                        child: ContactModalWidget(),
+                                      ),
                                     ),
                                   );
                                 },
@@ -613,7 +628,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             options: FFButtonOptions(
                               height: 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                                  10.0, 0.0, 10.0, 0.0),
                               iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).alternate,

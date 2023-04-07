@@ -40,24 +40,24 @@ class _ToolboxWidgetState extends State<ToolboxWidget>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).primary,
-        automaticallyImplyLeading: false,
-        title: Image.asset(
-          'assets/images/STEPHENSLogo2.png',
-          height: 35.0,
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          title: Image.asset(
+            'assets/images/STEPHENSLogo2.png',
+            height: 35.0,
+            fit: BoxFit.cover,
+          ),
+          actions: [],
+          centerTitle: true,
+          elevation: 2.0,
         ),
-        actions: [],
-        centerTitle: true,
-        elevation: 2.0,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        body: SafeArea(
           child: ListView(
             padding: EdgeInsets.zero,
             scrollDirection: Axis.vertical,
