@@ -170,7 +170,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: badges.Badge(
                                   badgeContent: Text(
-                                    '1',
+                                    homeAlertsRecordList.length.toString(),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
