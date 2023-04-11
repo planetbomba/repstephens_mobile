@@ -179,7 +179,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       ),
                                             ),
                                             Text(
-                                              '${dateTimeFormat('MMMEd', listViewEventsRecord.startDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.startDate)}',
+                                              '${dateTimeFormat('yMMMd', listViewEventsRecord.startDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.startDate)}',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
@@ -205,7 +205,7 @@ class _EventsWidgetState extends State<EventsWidget> {
                                                       ),
                                             ),
                                             Text(
-                                              '${dateTimeFormat('MMMEd', listViewEventsRecord.endDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.endDate)}',
+                                              '${dateTimeFormat('yMMMd', listViewEventsRecord.endDate)} @ ${dateTimeFormat('jm', listViewEventsRecord.endDate)}',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,

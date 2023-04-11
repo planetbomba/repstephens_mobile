@@ -84,18 +84,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   : ToolboxWidget(),
             ),
             FFRoute(
-              name: 'Events',
-              path: 'events',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'Events')
-                  : EventsWidget(),
-            ),
-            FFRoute(
               name: 'News',
               path: 'news',
               builder: (context, params) => params.isEmpty
                   ? NavBarPage(initialPage: 'News')
                   : NewsWidget(),
+            ),
+            FFRoute(
+              name: 'Events',
+              path: 'events',
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'Events')
+                  : EventsWidget(),
             ),
             FFRoute(
               name: 'NewsDetails',
