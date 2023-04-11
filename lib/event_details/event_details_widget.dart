@@ -190,7 +190,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                         ),
                                   ),
                                   Text(
-                                    '${dateTimeFormat('MMMEd', eventDetailsEventsRecord.startDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.startDate)}',
+                                    '${dateTimeFormat('yMMMd', eventDetailsEventsRecord.startDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.startDate)}',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -215,7 +215,7 @@ class _EventDetailsWidgetState extends State<EventDetailsWidget> {
                                         ),
                                   ),
                                   Text(
-                                    '${dateTimeFormat('MMMEd', eventDetailsEventsRecord.endDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.endDate)}',
+                                    '${dateTimeFormat('yMMMd', eventDetailsEventsRecord.endDate)} @ ${dateTimeFormat('jm', eventDetailsEventsRecord.endDate)}',
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
                                   ),
