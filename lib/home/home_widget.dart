@@ -303,8 +303,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Image.network(
-                                      nexteventEventsRecord!.eventImage!,
+                                    CachedNetworkImage(
+                                      imageUrl:
+                                          nexteventEventsRecord!.eventImage!,
                                       width: double.infinity,
                                       fit: BoxFit.cover,
                                     ),
