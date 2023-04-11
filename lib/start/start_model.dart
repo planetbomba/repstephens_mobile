@@ -11,8 +11,8 @@ class StartModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Timer widget.
-  int timerMilliseconds = 1000;
-  String timerValue = StopWatchTimer.getDisplayTime(1000, milliSecond: false);
+  int timerMilliseconds = 500;
+  String timerValue = StopWatchTimer.getDisplayTime(500, milliSecond: false);
   StopWatchTimer timerController =
       StopWatchTimer(mode: StopWatchMode.countDown);
 
